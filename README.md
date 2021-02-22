@@ -1,6 +1,61 @@
 ## TODO
 
-Everything
+#### Pakete
+
+Paket - 24000 Stück - 4 mit explosives.
+    als csv gespeichert.
+
+
+Box - hält Pakete
+    als CSV gespeichert.
+
+
+Palette - hält Boxen
+    als CSV gespeichert.
+
+
+LKW - mit Anhänger - Anhänger hält Paletten
+    als CSV gespeichert.
+
+---
+#### Paketzentrum
+
+Paketsortierzentrum - mit zentraler Steuereinheit, Entladezonen, parkzonen, sortieranlage
+
+Zentrale Steuereinheit - mit Eventbus - mit Rollen
+
+---
+#### Steuerung des Paketzentrums
+
+Mitarbeiter - mit Rollen und IDCard
+
+IDCard - verschlüsselter Magnetstreifen - mit Status und Sperrung
+
+Lesegerät - Liest IDCard und PIN
+
+TERMINAL >.<
+    über Proxy auf ZS steuern der Sortieranlage. - Proxy mit berechtigungen.
+
+Commands für die Sortieranlage - init, next, shutdown, show statistics, lock, unlock, change searchAlgorithm
+
+---
+#### "Arbeitsplätze" des Paketzentrums
+
+Parkzone mit Fahrzeugen - an ZS angeschlossen
+
+Entladezone - an ZS angeschlossen
+
+Zwischenlagerung - zwischen Sortieranlage und Entladung
+
+---
+#### Sortieranlage
+
+Sortieranlage: Roboter, Lagerplatz für leere Boxen, Lagerplatz für leere Paletten, Lagerbahnen für Pakete mit Sensoren, Sortierbahnen
+
+Scanner - Sortierbahn wird von Scanner nach exp!os:ve untersucht.
+
+
+---
 
 ## Complete Task
 

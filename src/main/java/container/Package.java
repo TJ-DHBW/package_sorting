@@ -41,5 +41,26 @@ public class Package {
     public float getWeight() {
         return weight;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setContent(char[][][] content) {
+        this.content = content;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public void setType(PacketType type) {
+        this.type = type;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
     //endregion
 }

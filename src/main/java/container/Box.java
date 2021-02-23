@@ -10,6 +10,9 @@ public class Box {
      */
     private Package[][][] aPackages;
 
+    public Box() {
+        aPackages = new Package[5][2][4];
+    }
 
     //region Getter and Setter
 

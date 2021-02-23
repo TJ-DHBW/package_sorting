@@ -9,7 +9,7 @@ import java.util.HashSet;
 
 public class BoxGenerator {
     private ArrayList<Box> boxes;
-    public HashSet<String> allGeneratedIds;
+    public HashSet<String> allGeneratedIds = new HashSet<>();
 
     public BoxGenerator() {
         boxes = new ArrayList<>();
@@ -31,7 +31,7 @@ public class BoxGenerator {
             }
             box.setId(idRandom());
             boxes.add(box);
-        }while (packageCounter < boxes.size());
+        }while (packageCounter < packages.size());
         return boxes;
     }
 

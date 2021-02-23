@@ -5,11 +5,11 @@ import container.Pallet;
 
 import java.util.ArrayList;
 
-public class palletGenerator {
+public class PalletGenerator {
     int currentIDGiven = 1;
     ArrayList<Pallet> pallets;
 
-    public palletGenerator() {
+    public PalletGenerator() {
         pallets = new ArrayList<>();
     }
 
@@ -21,8 +21,10 @@ public class palletGenerator {
             currentIDGiven++;
             for(int position = 0; position<4; position++){
                 for(int stackNumber = 0; stackNumber<3; stackNumber++){
-                    pallet.getBoxes()[position][stackNumber] = boxes.get(boxCounter);
-                    boxCounter++;
+                    if(boxes.get(boxCounter) != null) {
+                        pallet.getBoxes()[position][stackNumber] = boxes.get(boxCounter);
+                        boxCounter++;
+                    }
                 }
             }
             pallets.add(pallet);

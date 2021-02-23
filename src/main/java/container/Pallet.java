@@ -10,6 +10,9 @@ public class Pallet {
      */
     private Box[][] boxes;
 
+    public Pallet() {
+        boxes = new Box[4][3];
+    }
 
     //region Getter and Setter
     public int getId() {

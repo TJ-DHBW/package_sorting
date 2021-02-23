@@ -19,5 +19,16 @@ public class Pallet {
     public Box[][] getBoxes() {
         return boxes;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setBoxes(Box[][] boxes) {
+        this.boxes = boxes;
+    }
+
     //endregion
+
+
 }

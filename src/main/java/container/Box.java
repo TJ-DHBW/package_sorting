@@ -12,12 +12,23 @@ public class Box {
 
 
     //region Getter and Setter
+
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Package[][][] getaPackages() {
         return aPackages;
     }
+
+    public void setaPackages(Package[][][] aPackages) {
+        this.aPackages = aPackages;
+    }
+
+
     //endregion
 }

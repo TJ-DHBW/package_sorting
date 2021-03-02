@@ -1,5 +1,8 @@
 package base;
 
+import packageSortingCenter.permissions.encryption.DES;
+import packageSortingCenter.permissions.encryption.IEncryptionStrategy;
+
 import java.util.Random;
 
 public enum Configuration {
@@ -14,4 +17,8 @@ public enum Configuration {
 
     //random
     public Random randomGenerator = new Random();
+
+    //encryption
+    public final String secret = "thisIsTheSecretKey";
+    public final IEncryptionStrategy encryptionStrategy = new DES(secret);
 }

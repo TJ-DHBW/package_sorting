@@ -25,7 +25,7 @@ public class IDCardActive implements IIDCardState {
 
     @Override
     public boolean checkInput(IDCard idCard, String input) {
-        String clearMagnetsripe = Configuration.instance.encryptionStrategy.decrypt(new String(idCard.getMagnetStripe().getContent()));
+        String clearMagnetsripe = Configuration.instance.encryptionStrategy.decrypt(new String(idCard.getMagnetStripe().getActualContent()));
         String[] fields = clearMagnetsripe.split(";");
         String decryptedPin = fields[3];
 

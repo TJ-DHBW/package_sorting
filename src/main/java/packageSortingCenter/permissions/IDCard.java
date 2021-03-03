@@ -2,6 +2,7 @@ package packageSortingCenter.permissions;
 
 import base.Configuration;
 import packageSortingCenter.employee.Employee;
+import packageSortingCenter.permissions.idCardState.IDCardActive;
 import packageSortingCenter.permissions.idCardState.IIDCardState;
 
 public class IDCard {
@@ -10,7 +11,7 @@ public class IDCard {
 
     private IDCard(MagnetStripe magnetStripe) {
         this.magnetStripe = magnetStripe;
-        //TODO initialize state and write the checkInput method
+        this.state = new IDCardActive();
     }
 
     public static IDCard issueIDCardForEmployee(Employee employee){
@@ -23,7 +24,7 @@ public class IDCard {
 
         // Create SuperPin
         StringBuilder superPinBuilder = new StringBuilder();
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 6; i++){
             superPinBuilder.append(Configuration.instance.randomGenerator.nextInt(10));
         }
         String superPin = superPinBuilder.toString();
@@ -43,10 +44,6 @@ public class IDCard {
         return new IDCard(magnetStripe);
     }
 
-    //TODO Test the encryption and decryption stuff.
-
-    //TODO Test the States.
-
     public boolean checkInput(String input){
         return state.checkInput(this, input);
     }
@@ -54,7 +51,6 @@ public class IDCard {
     public boolean shouldBeAccepted(){
         return state.shouldBeAccepted();
     }
-
 
     public MagnetStripe getMagnetStripe() {
         return magnetStripe;

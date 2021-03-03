@@ -42,4 +42,8 @@ public abstract class Employee {
     public String getName() {
         return name;
     }
+
+    public IDCard getIdCard() {
+        return idCard;
+    }
 }

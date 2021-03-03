@@ -1,91 +1,60 @@
 package packageSortingCenter.permissions.encryption;
 
 import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.DESKeySpec;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
+import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.Arrays;
 import java.util.Base64;
 
-// Modified from: https://laptrinhx.com/implementation-of-des-encryption-algorithms-in-java-513453941/
+//Taken from userid#4701
 
 public class DES implements IEncryptionStrategy {
+    private SecretKeySpec secretKey;
 
-    private static final String ENCODEING = "UTF-8";
-    private static final String ALGORITHM = "DES";//encryption algorithm
+    public DES(String secret){
+        setKey(secret);
+    }
 
-    private SecretKey secureKey;
-
-    // Length of secret should not be less than 8.
-    public DES(String secret) {
+    public void setKey(String myKey) {
         try {
-            DESKeySpec desKey = new DESKeySpec(secret.getBytes(ENCODEING));
-            SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(ALGORITHM);
-            secureKey = keyFactory.generateSecret(desKey);
-        } catch (NoSuchAlgorithmException | UnsupportedEncodingException | InvalidKeyException | InvalidKeySpecException e) {
-            e.printStackTrace();
+            var key = myKey.getBytes(StandardCharsets.UTF_8);
+
+            var sha = MessageDigest.getInstance("SHA-1");
+            key = sha.digest(key);
+            key = Arrays.copyOf(key, 24);
+
+            secretKey = new SecretKeySpec(key, "DESede");
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
-    /**
-     *  DES Algorithmic encryption
-     * @param plaintext Text to be encrypted
-     * @Author Ron
-     * @Date 2017 September 12, 11:54:12 a.m.
-     * @return Encrypted String
-     */
     @Override
-    public String encrypt(String plaintext) {
-        String encryptStr = "";
+    public String encrypt(String strToEncrypt) {
         try {
-            byte[] datasource = plaintext.getBytes(ENCODEING);
-            SecureRandom random = new SecureRandom();
+            var cipher = Cipher.getInstance("DESede");
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
 
-            //Cipher Object Actually Completes Encryption Operation
-            Cipher cipher = Cipher.getInstance(ALGORITHM);
+            var buffer = cipher.doFinal(strToEncrypt.getBytes(StandardCharsets.UTF_8));
 
-            //Initialization of Cipher objects with keys
-            cipher.init(Cipher.ENCRYPT_MODE, secureKey, random);
+            return Base64.getEncoder().encodeToString(buffer);
 
-            //Now, get the data and encrypt it
-            //Formal Encryption Operation
-            byte[] encryptSrc = cipher.doFinal(datasource);
-
-            encryptStr = Base64.getEncoder().encodeToString(encryptSrc);
         } catch (Exception e) {
-            System.out.println("DES Encryption report exception");
+            throw new RuntimeException(e);
         }
-        return encryptStr;
     }
 
-    /**
-     *  Decrypt
-     * @param encryptStr Encrypted string
-     * @Author Ron
-     * @Date 2017 September 12, 1:12:56 p.m.
-     * @return Decrypted String
-     */
-    public String decrypt(String encryptStr){
-        String decryptStr = "";
+    @Override
+    public String decrypt(String strToDecrypt) {
         try {
-            byte[] src = Base64.getDecoder().decode(encryptStr);
-            // DES algorithm requires a trusted random number source
-            SecureRandom random = new SecureRandom();
+            Cipher cipher = Cipher.getInstance("DESede");
+            cipher.init(Cipher.DECRYPT_MODE, secretKey);
+            return new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)));
 
-            // Cipher object actually completes decryption operation
-            Cipher cipher = Cipher.getInstance(ALGORITHM);
-            // Initialization of Cipher objects with keys
-            cipher.init(Cipher.DECRYPT_MODE, secureKey, random);
-            // Really start decryption
-            byte[] decryptSrc = cipher.doFinal(src);
-            decryptStr = new String(decryptSrc,ENCODEING);
         } catch (Exception e) {
-            System.out.println("DES Decryption failed");
+            throw new RuntimeException(e);
         }
-        return decryptStr;
     }
 }

@@ -25,11 +25,11 @@ public class IDCardLocked implements IIDCardState {
 
     @Override
     public boolean checkInput(IDCard idCard, String input) {
-        String clearMagnetsripe = Configuration.instance.encryptionStrategy.decrypt(new String(idCard.getMagnetStripe().getContent()));
+        String clearMagnetsripe = Configuration.instance.encryptionStrategy.decrypt(new String(idCard.getMagnetStripe().getActualContent()));
         String[] fields = clearMagnetsripe.split(";");
         String decryptedPin = fields[4];
 
-        if(decryptedPin.startsWith(input)){
+        if(input.length() == 6 && decryptedPin.startsWith(input)){
             handleRightInput(idCard);
             return true;
         }else{

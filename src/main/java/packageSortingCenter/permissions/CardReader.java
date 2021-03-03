@@ -16,21 +16,23 @@ public class CardReader {
         }
     }
 
-    public void enterPinOrSuperPin(String pin){
+    public IDCard enterPinOrSuperPin(String pin){
         if(idCard == null){
             System.out.println("Please swipe a valid card before entering a pin.");
-            return;
+            return null;
         }
 
         boolean success = idCard.checkInput(pin);
 
         if(success){
             System.out.println("ID verified.");
+            IDCard tmp = idCard;
             idCard = null;
-            //TODO maybe check permissions now?
+            return tmp;
         }else{
             System.out.println("Could not verify.");
             idCard = null;
+            return null;
         }
     }
 }

@@ -25,7 +25,7 @@ Paketsortierzentrum - mit zentraler Steuereinheit, Entladezonen, parkzonen, sort
 Zentrale Steuereinheit - mit Eventbus - mit Rollen
 
 ---
-#### Steuerung des Paketzentrums
+#### Steuerung des Paketzentrums _TJ-DHBW_
 
 Mitarbeiter - mit Rollen und IDCard
 

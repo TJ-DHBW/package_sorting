@@ -3,10 +3,8 @@ package base;
 import container.Box;
 import container.Package;
 import container.Pallet;
-import container.generator.BoxGenerator;
-import container.generator.CsvWriter;
-import container.generator.PackageGenerator;
-import container.generator.PalletGenerator;
+import container.generator.*;
+import container.lkw.LKW;
 import packageSortingCenter.employee.*;
 import packageSortingCenter.permissions.IDCard;
 import packageSortingCenter.sortingFacility.SortingFacility;
@@ -23,14 +21,16 @@ public class Application {
         PackageGenerator packageGenerator = new PackageGenerator();
         BoxGenerator boxGenerator = new BoxGenerator();
         PalletGenerator palletGenerator = new PalletGenerator();
+        LKWGenerator lkwGenerator = new LKWGenerator();
         ArrayList<Package> packages = packageGenerator.packageGeneration();
         ArrayList<Box> boxes = boxGenerator.boxGeneration(packages);
         ArrayList<Pallet> pallets = palletGenerator.palletGeneration(boxes);
+        ArrayList<LKW> lkws = lkwGenerator.lkwGeneration(pallets);
         CsvWriter csvWriter = new CsvWriter();
         csvWriter.printGeneratedPackages(packages);
         csvWriter.printGeneratedBoxes(boxes);
         csvWriter.printGeneratedPallets(pallets);
-         */
+        csvWriter.printGeneratedLKWs(lkws);*/
 
         terminalStuff();
     }

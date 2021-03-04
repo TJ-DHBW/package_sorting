@@ -4,6 +4,7 @@ import base.Configuration;
 import container.Box;
 import container.Package;
 import container.Pallet;
+import container.lkw.LKW;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -56,6 +57,26 @@ public class CsvWriter {
                                 + pallets.get(palletCounter).getBoxes()[position][stackNumber].getId()
                                 + "\n");
                     }
+                }
+            }
+        }
+        writer.close();
+    }
+    public void printGeneratedLKWs(ArrayList<LKW> lkws) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(Configuration.instance.exportDirectory + "base_lkw.csv"));
+        for (int lkwCounter = 0; lkwCounter < lkws.size(); lkwCounter++) {
+            for (int palletSideCounter = 0; palletSideCounter<2; palletSideCounter++){
+                for(int palletLengthCounter = 0; palletLengthCounter<5; palletLengthCounter++) {
+                writer.write(lkws.get(lkwCounter).getId());
+                if(palletSideCounter == 0){
+                    writer.write(",left");
+                }
+                else {
+                    writer.write(",right");
+                }
+                    writer.write(","+palletLengthCounter);
+                    writer.write(","+lkws.get(lkwCounter).getTrailer().getPallets()[palletSideCounter][palletLengthCounter].getId());
+                    writer.write("\n");
                 }
             }
         }

@@ -8,6 +8,9 @@ public class LKWTrailer {
      */
     private Pallet[][] pallets;
 
+    public LKWTrailer() {
+        pallets = new Pallet[2][5];
+    }
 
     //region Getter and Setter
     public Pallet[][] getPallets() {

@@ -18,5 +18,13 @@ public class LKW {
         return trailer;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setTrailer(LKWTrailer trailer) {
+        this.trailer = trailer;
+    }
+
     //endregion
 }

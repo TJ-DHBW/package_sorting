@@ -3,17 +3,19 @@ package packageSortingCenter.unloadingZone;
 import java.util.ArrayList;
 
 public class Sensor {
-    private boolean activated;
-    private ArrayList<ISensorListener> listenerList;
+    private boolean activated = true;
+    private ArrayList<ISensorUnloadingZoneListener> listenerList;
+    private int zoneId;
 
-    public Sensor(){
+    public Sensor(int zoneId){
+        this.zoneId = zoneId;
         listenerList = new ArrayList<>();
     }
 
     public void lkwDetected(){
         if(activated) {
-            for (ISensorListener listeners : listenerList) {
-                listeners.lkwArrived();
+            for (ISensorUnloadingZoneListener listeners : listenerList) {
+                listeners.lkwArrived(zoneId);
             }
         }
         else{
@@ -21,11 +23,11 @@ public class Sensor {
         }
     }
 
-    public void addListener(ISensorListener listener) {
+    public void addListener(ISensorUnloadingZoneListener listener) {
         listenerList.add(listener);
     }
 
-    public void removeListener(ISensorListener listener) {
+    public void removeListener(ISensorUnloadingZoneListener listener) {
         listenerList.remove(listener);
     }
 

@@ -1,49 +1,34 @@
 package packageSortingCenter.sortingFacility;
 
 import container.Box;
+import container.Package;
 
 public class StorageLane {
-    private final Box[] lane;
-
-    private int nextFreeIndex;
-    private int nextBoxIndex;
+    private final Package[] lane;
+    private final Sensor sensor;
+    private int id;
+    private static int nextId = 0;
 
     public StorageLane(int size) {
-        this.lane = new Box[size];
-
-        this.nextFreeIndex = 0;
-        this.nextBoxIndex = 0;
+        this.id = nextId++;
+        this.lane = new Package[size];
+        this.sensor = new Sensor(id);
     }
+    public boolean put(Package packageToAdd) {
+        for (int i = 0; i < lane.length; i++) {
+            if (lane[i] == null) {
+                lane[i] = packageToAdd;
+                return true;
+            }
 
-    //TODO Implement the Observing sensor
-
-
-    public boolean put(Box box){
-        if(nextFreeIndex < lane.length){
-            lane[nextFreeIndex] = box;
-            nextFreeIndex++;
-            return true;
+            if (i == lane.length - 1) {
+                sensor.storageLaneIsFilled();
+            }
         }
-
         return false;
     }
 
-    public Box getNext(){
-        if(!isEmpty()){
-            Box tmp = lane[nextBoxIndex];
-            lane[nextBoxIndex] = null;
-            nextBoxIndex++;
-            return tmp;
-        }
-
-        return null;
-    }
-
-    public boolean isEmpty(){
-        return nextFreeIndex == 0 || nextBoxIndex == nextFreeIndex;
-    }
-
-    public boolean isFull(){
-        return nextFreeIndex >= lane.length && nextBoxIndex == 0;
+    public Sensor getSensor() {
+        return sensor;
     }
 }

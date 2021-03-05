@@ -1,5 +1,5 @@
 package packageSortingCenter.centralControlUnit.events.zsEvents;
 
-public class LKWArrivedEvent extends ZSEvent{
+public class StorageLaneFullEvent extends ZSEvent{
     //TODO
 }

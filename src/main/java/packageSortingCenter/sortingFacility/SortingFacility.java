@@ -128,5 +128,9 @@ public class SortingFacility implements ISortingFacility{
         this.lkwWaitingArea = lkwWaitingArea;
     }
 
+    public StorageLane[] getStorageLanes() {
+        return storageLanes;
+    }
+
     //endregion
 }

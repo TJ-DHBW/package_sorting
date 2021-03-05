@@ -16,5 +16,10 @@ public class LKWTrailer {
     public Pallet[][] getPallets() {
         return pallets;
     }
+
+    public void setPallets(Pallet[][] pallets) {
+        this.pallets = pallets;
+    }
+
     //endregion
 }

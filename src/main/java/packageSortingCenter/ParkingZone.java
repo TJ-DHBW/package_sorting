@@ -1,17 +1,30 @@
 package packageSortingCenter;
 
 import container.Pallet;
+import packageSortingCenter.sortingFacility.SortingFacility;
 
 public class ParkingZone {
-    private AutonomousVehicle[] autonomousVehicles;
+    private PackageSortingCenter packageSortingCenter;
+    private ParkingSpot[] parkingSpots;
 
-    public ParkingZone() {
-        autonomousVehicles = new AutonomousVehicle[5];
+    public ParkingZone(PackageSortingCenter packageSortingCenter) {
+        this.packageSortingCenter = packageSortingCenter;
+        parkingSpots = new ParkingSpot[5];
+        for(int i = 0; i<5; i++){
+            parkingSpots[i] = new ParkingSpot();
+            AutonomousVehicle autonomousVehicle = new AutonomousVehicle(packageSortingCenter, parkingSpots[i]);
+            parkingSpots[i].setParkedVehicle(autonomousVehicle);
+        }
+    }
+    //region  Getter and Setter
+
+    public ParkingSpot[] getParkingSpots() {
+        return parkingSpots;
     }
 
-    //TODO
-
-    //region  Getter and Setter
+    public void setParkingSpots(ParkingSpot[] parkingSpots) {
+        this.parkingSpots = parkingSpots;
+    }
 
 
     //endregion

@@ -18,3 +18,6 @@ run{
 }
 
 mainClassName='base.Application'
+
+run.dependsOn('rabinKarp:jar')
+run.dependsOn('boyerMoore:jar')

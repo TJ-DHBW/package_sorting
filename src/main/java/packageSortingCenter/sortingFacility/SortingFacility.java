@@ -1,8 +1,12 @@
 package packageSortingCenter.sortingFacility;
-
+import container.Pallet;
 import packageSortingCenter.LkwWaitingArea;
 import packageSortingCenter.employee.Employee;
 import packageSortingCenter.sortingFacility.commands.*;
+import packageSortingCenter.sortingFacility.sortingLanes.ExpressSortingLane;
+import packageSortingCenter.sortingFacility.sortingLanes.NormalSortingLane;
+import packageSortingCenter.sortingFacility.sortingLanes.SortingLane;
+import packageSortingCenter.sortingFacility.sortingLanes.ValueSortingLane;
 
 import java.util.HashMap;
 
@@ -10,8 +14,33 @@ public class SortingFacility implements ISortingFacility{
     private final HashMap<String, ISortingFacilityCommand> commands;
     private LkwWaitingArea lkwWaitingArea = new LkwWaitingArea();
 
+    private final Robot prestoredRobot;
+    private final StoragePlace<Box> boxStoragePlace;
+    private final StoragePlace<Pallet> palletStoragePlace;
+    private final StorageLane[] storageLanes;
+    //TODO Eins reterded Sensor for ze StorageLane/s.
+    private final SortingLane[] sortingLanes;
+
+
     public SortingFacility() {
-        commands = createCommands();
+        this.prestoredRobot = new Robot();
+        this.boxStoragePlace = new StoragePlace<>();
+        this.palletStoragePlace = new StoragePlace<>();
+        this.storageLanes = new StorageLane[]{new StorageLane(600),
+                new StorageLane(600),
+                new StorageLane(600),
+                new StorageLane(600),
+                new StorageLane(600),
+                new StorageLane(600),
+                new StorageLane(600),
+                new StorageLane(600)};
+        this.sortingLanes = new SortingLane[]{new NormalSortingLane(),
+                new ValueSortingLane(),
+                new ExpressSortingLane()}; //TODO rename PacketType to PackageType
+        this.sortingLanes[0].setSuccessor(this.sortingLanes[1]);
+        this.sortingLanes[1].setSuccessor(this.sortingLanes[2]);
+
+        this.commands = createCommands();
     }
 
 

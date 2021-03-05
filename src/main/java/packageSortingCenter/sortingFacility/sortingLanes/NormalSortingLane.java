@@ -12,7 +12,7 @@ public class NormalSortingLane extends SortingLane {
 
     @Override
     public void sort(Package packageToSort) {
-        if(canHandlePackage(packageToSort, PacketType.NORMAL)){
+        if(canHandlePackage(packageToSort, PackageType.NORMAL)){
             if(scanner.scan(packageToSort)){
                 System.out.println("Package with explosives detected!\nPackage: " + packageToSort);
                 ReportInformationCollector.getInstance().getExplosivePackages().add(packageToSort);

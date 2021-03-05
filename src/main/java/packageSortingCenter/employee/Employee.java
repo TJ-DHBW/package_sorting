@@ -16,7 +16,6 @@ public abstract class Employee {
         idCard = IDCard.issueIDCardForEmployee(this);
     }
 
-    //TODO What does the "Rollen" mean?
 
     public void rememberPin(String pin){
         this.pin = pin;

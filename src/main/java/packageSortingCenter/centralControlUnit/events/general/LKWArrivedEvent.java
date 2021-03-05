@@ -5,7 +5,6 @@ public class LKWArrivedEvent{
     private int zoneId;
     private int vehicleId;
 
-    //TODO
     public LKWArrivedEvent(int zoneId, int vehicleId) {
         this.zoneId = zoneId;
         this.vehicleId = vehicleId;

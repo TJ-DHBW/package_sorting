@@ -3,6 +3,7 @@ package packageSortingCenter.centralControlUnit;
 import base.Configuration;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
+import packageSortingCenter.centralControlUnit.events.general.ActivateRobotEvent;
 import packageSortingCenter.centralControlUnit.events.general.LKWArrivedEvent;
 import packageSortingCenter.centralControlUnit.events.zsEvents.LKWUnloadedEvent;
 import packageSortingCenter.centralControlUnit.events.zsEvents.StorageLaneFullEvent;
@@ -10,7 +11,6 @@ import packageSortingCenter.centralControlUnit.events.zsEvents.ZSEvent;
 import packageSortingCenter.sortingFacility.ISensorStorageLaneListener;
 import packageSortingCenter.unloadingZone.ISensorUnloadingZoneListener;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 @SuppressWarnings("UnstableApiUsage")
@@ -20,7 +20,6 @@ public class CentralControlUnit implements ISensorUnloadingZoneListener, ISensor
 
     private HashSet<Integer> filledStorageLanes;
 
-    //TODO should the constructor be public?
     public CentralControlUnit(int numberOfVehicles) {
         eventBus = new EventBus("PackageSortingCenterEventBus");
         this.numberOfVehicles = numberOfVehicles;
@@ -38,30 +37,8 @@ public class CentralControlUnit implements ISensorUnloadingZoneListener, ISensor
 
     public void notifyEventbus(ZSEvent event){
         eventBus.post(event);
-        //TODO do I really want to do it this way?
     }
 
-    public void init(){
-        //TODO
-    }
-    public void next(){
-        //TODO
-    }
-    public void shutdown(){
-        //TODO
-    }
-    public void lock(){
-        //TODO
-    }
-    public void unlock(){
-        //TODO
-    }
-    public void showStatistics(){
-        //TODO
-    }
-    public void changeSearchAlgorithm(){
-        //TODO
-    }
 
     @Override
     public void lkwArrived(int zoneId) {
@@ -84,7 +61,7 @@ public class CentralControlUnit implements ISensorUnloadingZoneListener, ISensor
 
     @Subscribe
     public void receive(LKWUnloadedEvent event){
-        //TODO
+        eventBus.post(new ActivateRobotEvent());
     }
     @Subscribe
     public void receive(StorageLaneFullEvent event){

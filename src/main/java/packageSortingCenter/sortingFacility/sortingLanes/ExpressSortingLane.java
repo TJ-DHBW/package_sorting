@@ -12,7 +12,7 @@ public class ExpressSortingLane extends SortingLane {
 
     @Override
     public void sort(Package packageToSort) {
-        if(canHandlePackage(packageToSort, PacketType.EXPRESS)){
+        if(canHandlePackage(packageToSort, PackageType.EXPRESS)){
             if(scanner.scan(packageToSort)){
                 System.out.println("Package with explosives detected!\nPackage: " + packageToSort);
                 ReportInformationCollector.getInstance().getExplosivePackages().add(packageToSort);

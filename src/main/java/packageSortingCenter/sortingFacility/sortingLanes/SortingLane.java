@@ -1,6 +1,6 @@
 package packageSortingCenter.sortingFacility.sortingLanes;
 
-import unordered.PacketType;
+import unordered.PackageType;
 import container.Package;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public abstract class SortingLane {
         }
     }
 
-    protected boolean canHandlePackage(Package packageToTest, PacketType type){
+    protected boolean canHandlePackage(Package packageToTest, PackageType type){
         return packageToTest == null || packageToTest.getType() == type;
     }
 

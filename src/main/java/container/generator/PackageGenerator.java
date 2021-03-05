@@ -15,6 +15,7 @@ public class PackageGenerator {
     private final Character[] charPoolWithoutLetters = {'.', ':', '!', '-'};
     private ArrayList<Package> packages = new ArrayList<>();
     private HashSet<String> allGeneratedIds = new HashSet<>();
+    private String explosive = "exp!os:ve";
 
     public PackageGenerator() {
     }
@@ -64,16 +65,42 @@ public class PackageGenerator {
         char[][][] content = new char[25][10][10];
         for(int height = 0; height<10; height++){
             for(int width = 0; width<10; width++){
+                StringBuilder checkForExplosives = new StringBuilder();
                 for (int length = 0; length<25; length++){
                     int characterNumber = Configuration.instance.randomGenerator.nextInt(30);
                     if(characterNumber < 26){
+                        checkForExplosives.append((char) (characterNumber+97));
                         content[length][width][height] = (char) (characterNumber+97);
                     }
                     else{
+                        checkForExplosives.append(charPoolWithoutLetters[characterNumber-26]);
                         content[length][width][height] = charPoolWithoutLetters[characterNumber-26];
                     }
                 }
+                while(checkForExplosives.toString().contains(explosive)){
+                    StringBuilder replacement = new StringBuilder();
+                    for(int i = 0; i<explosive.length(); i++){
+                        int characterNumber = Configuration.instance.randomGenerator.nextInt(30);
+                        if(characterNumber < 26){
+                             replacement.append((char) (characterNumber+97));
+                        }
+                        else{
+                            replacement.append(charPoolWithoutLetters[characterNumber-26]);
+                        }
+                    }
+                    checkForExplosives.toString().replace(explosive, replacement.toString());
+                }
             }
+        }
+        return content;
+    }
+
+    public char[][][] hideExplosive(char[][][] content){
+        int height = Configuration.instance.randomGenerator.nextInt(10);
+        int width = Configuration.instance.randomGenerator.nextInt(10);
+        int length = Configuration.instance.randomGenerator.nextInt(25-explosive.length());
+        for (int counter = 0; counter<explosive.length(); counter++){
+            content[height][width][length+counter] = explosive.charAt(counter);
         }
         return content;
     }

@@ -15,6 +15,9 @@ public enum Configuration {
     public final String dataDirectory = userDirectory + fileSeparator + "data" + fileSeparator;
     public final String exportDirectory = userDirectory + fileSeparator + "export" + fileSeparator;
 
+    //implementation
+    Integer[] packageIndexToHide = {3,57,100,200};
+
     //random
     public Random randomGenerator = new Random();
 

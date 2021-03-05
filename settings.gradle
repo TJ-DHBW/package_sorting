@@ -1,2 +1,7 @@
+include "components/rabinKarp"
+include "components/boyerMoore"
+
 rootProject.name = 'package_sorting'
 
+project(":components/rabinKarp").name = "rabinKarp"
+project(":components/boyerMoore").name = "boyerMoore"

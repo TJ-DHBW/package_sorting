@@ -67,6 +67,4 @@ public class CentralControlUnit implements ISensorUnloadingZoneListener, ISensor
     public void receive(StorageLaneFullEvent event){
         //TODO
     }
-
-    //TODO Check if nothing was forgotten.
 }

@@ -38,7 +38,6 @@ public class PackageSortingCenter {
     }
 
     private void connectToCentralControlUnit(){
-        //TODO connect all the stuff to the central control unit
         for(ParkingSpot parkingSpot : parkingZone.getParkingSpots()) {
             centralControlUnit.subscribe(parkingSpot.getParkedVehicle());
         }

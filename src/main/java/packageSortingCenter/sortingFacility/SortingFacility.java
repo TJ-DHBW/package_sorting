@@ -7,6 +7,7 @@ import packageSortingCenter.sortingFacility.sortingLanes.ExpressSortingLane;
 import packageSortingCenter.sortingFacility.sortingLanes.NormalSortingLane;
 import packageSortingCenter.sortingFacility.sortingLanes.SortingLane;
 import packageSortingCenter.sortingFacility.sortingLanes.ValueSortingLane;
+import container.Box;
 
 import java.util.HashMap;
 

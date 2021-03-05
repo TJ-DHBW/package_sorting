@@ -104,8 +104,8 @@ public class SortingFacility implements ISortingFacility{
         ret.put("4", new LockCommand(this));
         ret.put("5", new UnlockCommand(this));
         ret.put("6", new ShowStatisticsCommand(this));
-        ret.put("7.1", new ChangeSearchAlgorithmCommand(this, SearchAlgorithm.BM));
-        ret.put("7.2", new ChangeSearchAlgorithmCommand(this, SearchAlgorithm.RK));
+        ret.put("7.1", new ChangeSearchAlgorithmCommand(SearchAlgorithm.BM));
+        ret.put("7.2", new ChangeSearchAlgorithmCommand(SearchAlgorithm.RK));
 
         return ret;
     }

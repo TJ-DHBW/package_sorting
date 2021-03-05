@@ -2,6 +2,7 @@ package packageSortingCenter.sortingFacility.commands;
 
 import base.Configuration;
 import packageSortingCenter.PackageSortingCenter;
+import packageSortingCenter.Report.ReportInformationCollector;
 import packageSortingCenter.UnloadingZone;
 import packageSortingCenter.sortingFacility.SortingFacility;
 
@@ -24,5 +25,6 @@ public class NextCommand implements ISortingFacilityCommand {
         int randomUnloadingZone = Configuration.instance.randomGenerator.nextInt(packageSortingCenter.getUnloadingZones().length);
         packageSortingCenter.getUnloadingZones()[randomUnloadingZone]
                 .setCurrentLKWUnloading(packageSortingCenter.getSortingFacility().getLkwWaitingArea().getLkws()[packageSortingCenter.getCurrentLKW()]);
+        ReportInformationCollector.getInstance().setNumberOfHandledLkw(ReportInformationCollector.getInstance().getNumberOfHandledLkw()+1);
     }
 }

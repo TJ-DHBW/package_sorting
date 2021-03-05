@@ -5,6 +5,7 @@ import container.Package;
 import container.Pallet;
 import container.generator.*;
 import container.lkw.LKW;
+import packageSortingCenter.PackageSortingCenter;
 import packageSortingCenter.employee.*;
 import packageSortingCenter.permissions.IDCard;
 import packageSortingCenter.sortingFacility.SortingFacility;
@@ -22,7 +23,8 @@ public class Application {
     }
 
     public static void terminalStuff(){
-        SortingFacility sortingFacility = new SortingFacility();
+        PackageSortingCenter packageSortingCenter = new PackageSortingCenter();
+        SortingFacility sortingFacility = new SortingFacility(packageSortingCenter);
         Terminal terminal = new Terminal(sortingFacility);
 
         Supervisor supervisor = new Supervisor(0, "Joe", false);

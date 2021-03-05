@@ -27,7 +27,7 @@ public class SortingFacility implements ISortingFacility{
 
     public SortingFacility(PackageSortingCenter packageSortingCenter) {
         this.packageSortingCenter = packageSortingCenter;
-        this.prestoredRobot = new Robot();
+        this.prestoredRobot = new Robot(this);
         this.boxStoragePlace = new StoragePlace<>();
         this.palletStoragePlace = new StoragePlace<>();
         this.storageLanes = new StorageLane[]{new StorageLane(600),
@@ -150,6 +150,18 @@ public class SortingFacility implements ISortingFacility{
 
     public void setLocked(boolean locked) {
         isLocked = locked;
+    }
+
+    public StoragePlace<Box> getBoxStoragePlace() {
+        return boxStoragePlace;
+    }
+
+    public StoragePlace<Pallet> getPalletStoragePlace() {
+        return palletStoragePlace;
+    }
+
+    public Robot getPrestoredRobot() {
+        return prestoredRobot;
     }
 
     //endregion

@@ -3,6 +3,7 @@ package packageSortingCenter.centralControlUnit;
 import base.Configuration;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
+import packageSortingCenter.centralControlUnit.events.general.ActivateRobotEvent;
 import packageSortingCenter.centralControlUnit.events.general.LKWArrivedEvent;
 import packageSortingCenter.centralControlUnit.events.zsEvents.LKWUnloadedEvent;
 import packageSortingCenter.centralControlUnit.events.zsEvents.StorageLaneFullEvent;
@@ -60,7 +61,7 @@ public class CentralControlUnit implements ISensorUnloadingZoneListener, ISensor
 
     @Subscribe
     public void receive(LKWUnloadedEvent event){
-        //TODO
+        eventBus.post(new ActivateRobotEvent());
     }
     @Subscribe
     public void receive(StorageLaneFullEvent event){

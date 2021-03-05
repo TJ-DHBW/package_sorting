@@ -45,6 +45,7 @@ public class PackageSortingCenter {
         for(StorageLane storageLane : this.sortingFacility.getStorageLanes()){
             storageLane.getSensor().addListener(centralControlUnit);
         }
+        centralControlUnit.subscribe(sortingFacility.getPrestoredRobot());
     }
 
     //region Getter and Setter

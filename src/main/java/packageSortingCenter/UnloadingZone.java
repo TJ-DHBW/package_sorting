@@ -28,5 +28,9 @@ public class UnloadingZone {
         return id;
     }
 
+    public Sensor getSensor() {
+        return sensor;
+    }
+
     //endregion
 }

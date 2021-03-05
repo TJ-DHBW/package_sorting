@@ -1,6 +1,8 @@
 package packageSortingCenter.sortingFacility;
 import container.Pallet;
 import packageSortingCenter.LkwWaitingArea;
+import packageSortingCenter.PackageSortingCenter;
+import packageSortingCenter.employee.Employee;
 import packageSortingCenter.sortingFacility.commands.*;
 import packageSortingCenter.sortingFacility.sortingLanes.ExpressSortingLane;
 import packageSortingCenter.sortingFacility.sortingLanes.NormalSortingLane;
@@ -13,15 +15,18 @@ import java.util.HashMap;
 public class SortingFacility implements ISortingFacility{
     private final HashMap<String, ISortingFacilityCommand> commands;
     private LkwWaitingArea lkwWaitingArea = new LkwWaitingArea();
-
     private final Robot prestoredRobot;
     private final StoragePlace<Box> boxStoragePlace;
     private final StoragePlace<Pallet> palletStoragePlace;
     private final StorageLane[] storageLanes;
+    private final PackageSortingCenter packageSortingCenter;
+    //TODO Eins reterded Sensor for ze StorageLane/s.
     private final SortingLane[] sortingLanes;
 
+    private boolean isLocked;
 
-    public SortingFacility() {
+    public SortingFacility(PackageSortingCenter packageSortingCenter) {
+        this.packageSortingCenter = packageSortingCenter;
         this.prestoredRobot = new Robot();
         this.boxStoragePlace = new StoragePlace<>();
         this.palletStoragePlace = new StoragePlace<>();
@@ -35,27 +40,28 @@ public class SortingFacility implements ISortingFacility{
                 new StorageLane(600)};
         this.sortingLanes = new SortingLane[]{new NormalSortingLane(),
                 new ValueSortingLane(),
-                new ExpressSortingLane()};
+                new ExpressSortingLane()}; //TODO rename PacketType to PackageType
         this.sortingLanes[0].setSuccessor(this.sortingLanes[1]);
         this.sortingLanes[1].setSuccessor(this.sortingLanes[2]);
 
         this.commands = createCommands();
+        this.isLocked = false;
     }
 
 
     @Override
     public void init() {
-        if(!executeIfFound("1")) throw new IllegalStateException("There should be a command to execute!");
+        if(!isLocked && !executeIfFound("1")) throw new IllegalStateException("There should be a command to execute!");
     }
 
     @Override
     public void next() {
-        if(!executeIfFound("2")) throw new IllegalStateException("There should be a command to execute!");
+        if(!isLocked &&!executeIfFound("2")) throw new IllegalStateException("There should be a command to execute!");
     }
 
     @Override
     public void shutdown() {
-        if(!executeIfFound("3")) throw new IllegalStateException("There should be a command to execute!");
+        if(!isLocked && !executeIfFound("3")) throw new IllegalStateException("There should be a command to execute!");
     }
 
     @Override
@@ -70,7 +76,7 @@ public class SortingFacility implements ISortingFacility{
 
     @Override
     public void showStatistics() {
-        if(!executeIfFound("6")) throw new IllegalStateException("There should be a command to execute!");
+        if(!isLocked && !executeIfFound("6")) throw new IllegalStateException("There should be a command to execute!");
     }
 
     @Override
@@ -128,6 +134,22 @@ public class SortingFacility implements ISortingFacility{
 
     public StorageLane[] getStorageLanes() {
         return storageLanes;
+    }
+
+    public PackageSortingCenter getPackageSortingCenter() {
+        return packageSortingCenter;
+    }
+
+    public SortingLane[] getSortingLanes() {
+        return sortingLanes;
+    }
+
+    public boolean isLocked() {
+        return isLocked;
+    }
+
+    public void setLocked(boolean locked) {
+        isLocked = locked;
     }
 
     //endregion

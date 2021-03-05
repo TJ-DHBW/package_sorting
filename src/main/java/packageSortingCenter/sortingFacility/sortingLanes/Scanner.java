@@ -27,6 +27,10 @@ public class Scanner {
         return false;
     }
 
+    public static void shutdownScanner(){
+        searchAlgorithm = null;
+    }
+
     public static void changeSearchAlgorithm(SearchAlgorithm algorithm){
         String projectName = algorithm.toProjectName();
         String className = algorithm.toMainClassName();

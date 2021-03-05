@@ -1,6 +1,9 @@
 package packageSortingCenter.sortingFacility.commands;
 
+import packageSortingCenter.UnloadingZone;
 import packageSortingCenter.sortingFacility.SortingFacility;
+import packageSortingCenter.sortingFacility.sortingLanes.Scanner;
+import packageSortingCenter.sortingFacility.sortingLanes.SortingLane;
 
 public class ShutdownCommand implements ISortingFacilityCommand {
     private final SortingFacility sortingFacility;
@@ -11,7 +14,9 @@ public class ShutdownCommand implements ISortingFacilityCommand {
 
     @Override
     public void execute() {
-        //TODO implement shutdown
-        System.out.println("Shutdown needs to be implemented.");
+        for(UnloadingZone unloadingZone : sortingFacility.getPackageSortingCenter().getUnloadingZones()){
+            unloadingZone.getSensor().setActivated(false);
+        }
+        Scanner.shutdownScanner();
     }
 }

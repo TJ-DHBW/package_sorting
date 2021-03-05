@@ -1,5 +1,6 @@
 package container.generator;
 
+import base.Configuration;
 import container.Box;
 import container.Pallet;
 
@@ -15,7 +16,7 @@ public class PalletGenerator {
 
     public ArrayList<Pallet> palletGeneration(ArrayList<Box>boxes){
         int boxCounter = 0;
-        for (int i = 0; i<50; i++){
+        for (int i = 0; i< Configuration.instance.numberOfPallets; i++){
             Pallet pallet = new Pallet();
             pallet.setId(currentIDGiven);
             currentIDGiven++;

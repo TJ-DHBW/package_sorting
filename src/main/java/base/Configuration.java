@@ -16,7 +16,11 @@ public enum Configuration {
     public final String exportDirectory = userDirectory + fileSeparator + "export" + fileSeparator;
 
     //implementation
-    Integer[] packageIndexToHide = {3,57,100,200};
+    public Integer[] packageIndexToHide = {3,57,100,200};
+    public Integer numberOfPackages = 4800;
+    public Integer numberOfBoxes = 120;
+    public Integer numberOfPallets = 10;
+    public Integer numberOfLkw = 1;
 
     //random
     public Random randomGenerator = new Random();

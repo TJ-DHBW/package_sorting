@@ -8,6 +8,7 @@ import container.lkw.LKW;
 import packageSortingCenter.employee.*;
 import packageSortingCenter.permissions.IDCard;
 import packageSortingCenter.sortingFacility.SortingFacility;
+import packageSortingCenter.sortingFacility.SortingFacilityProxy;
 import packageSortingCenter.terminal.Terminal;
 import packageSortingCenter.terminal.TouchPad;
 
@@ -17,7 +18,6 @@ import java.util.ArrayList;
 public class Application {
     public static void main(String[] args) throws IOException {
         System.out.println("Hello World!");
-
         terminalStuff();
     }
 

@@ -13,7 +13,7 @@ public class LKWGenerator {
     public ArrayList<LKW> lkwGeneration(ArrayList<Pallet> pallets){
         ArrayList<LKW> lkws = new ArrayList<>();
         int palletCounter = 0;
-        for(int lkwCounter = 0; lkwCounter<5; lkwCounter++){
+        for(int lkwCounter = 0; lkwCounter<Configuration.instance.numberOfLkw; lkwCounter++){
             LKW lkw = new LKW();
             lkw.setId(idRandom());
             LKWTrailer lkwTrailer = new LKWTrailer();

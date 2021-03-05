@@ -8,10 +8,10 @@ public class Box {
     /**
      * <ul><li>There are 5 Layers.</li><li>Each Layer has two sides: left, right.</li><li>Each side has 4 Packets.</li></ul>
      */
-    private Package[][][] aPackages;
+    private Package[][][] packages;
 
     public Box() {
-        aPackages = new Package[5][2][4];
+        packages = new Package[5][2][4];
     }
 
     //region Getter and Setter
@@ -24,12 +24,12 @@ public class Box {
         this.id = id;
     }
 
-    public Package[][][] getaPackages() {
-        return aPackages;
+    public Package[][][] getPackages() {
+        return packages;
     }
 
-    public void setaPackages(Package[][][] aPackages) {
-        this.aPackages = aPackages;
+    public void setPackages(Package[][][] packages) {
+        this.packages = packages;
     }
 
 

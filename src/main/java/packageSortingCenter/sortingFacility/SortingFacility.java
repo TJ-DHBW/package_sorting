@@ -1,5 +1,6 @@
 package packageSortingCenter.sortingFacility;
 
+import packageSortingCenter.LkwWaitingArea;
 import packageSortingCenter.employee.Employee;
 import packageSortingCenter.sortingFacility.commands.*;
 
@@ -7,6 +8,7 @@ import java.util.HashMap;
 
 public class SortingFacility implements ISortingFacility{
     private final HashMap<String, ISortingFacilityCommand> commands;
+    private LkwWaitingArea lkwWaitingArea = new LkwWaitingArea();
 
     public SortingFacility() {
         commands = createCommands();
@@ -85,4 +87,16 @@ public class SortingFacility implements ISortingFacility{
     public SortingFacilityProxy getProxy(String employeeType){
         return new SortingFacilityProxy(this, employeeType);
     }
+
+    //region Getter und Setter
+
+    public LkwWaitingArea getLkwWaitingArea() {
+        return lkwWaitingArea;
+    }
+
+    public void setLkwWaitingArea(LkwWaitingArea lkwWaitingArea) {
+        this.lkwWaitingArea = lkwWaitingArea;
+    }
+
+    //endregion
 }

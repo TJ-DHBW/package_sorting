@@ -35,8 +35,8 @@ public class CsvWriter {
             for(int level = 0; level<5; level++){
                 for(int side = 0; side<2; side++){
                     for(int width = 0; width<4; width++){
-                        if(!(boxes.get(boxCounter).getaPackages()[level][side][width] == null)) {
-                            writer.write(","+boxes.get(boxCounter).getaPackages()[level][side][width].getId());
+                        if(!(boxes.get(boxCounter).getPackages()[level][side][width] == null)) {
+                            writer.write(","+boxes.get(boxCounter).getPackages()[level][side][width].getId());
                         }
                     }
                 }

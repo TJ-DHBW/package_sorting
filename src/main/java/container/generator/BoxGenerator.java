@@ -23,7 +23,7 @@ public class BoxGenerator {
                 for(int side = 0; side<2; side++){
                     for(int width = 0; width<4; width++){
                         if(packageCounter < packages.size()) {
-                            box.getaPackages()[level][side][width] = packages.get(packageCounter);
+                            box.getPackages()[level][side][width] = packages.get(packageCounter);
                             packageCounter++;
                         }
                     }

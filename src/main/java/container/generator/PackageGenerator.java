@@ -21,16 +21,16 @@ public class PackageGenerator {
     }
 
     public ArrayList<Package> packageGeneration(){
-        for (int packageNumber = 0; packageNumber < 24000; packageNumber++){
+        for (int packageNumber = 0; packageNumber < Configuration.instance.numberOfPackages; packageNumber++){
             Package packageGenerated = new Package();
             packageGenerated.setId(idRandom());
             packageGenerated.setWeight(weightRandom());
             packageGenerated.setZipCode(zipCodeRandom());
             packageGenerated.setContent(contentRandom());
-            if(packageNumber<19200){
+            if(packageNumber<Configuration.instance.numberOfPackages*0.8){
                 packageGenerated.setType(PacketType.NORMAL);
             }
-            else if (packageNumber<22800){
+            else if (packageNumber<Configuration.instance.numberOfPackages*0.95){
                 packageGenerated.setType(PacketType.EXPRESS);
             }
             else{
@@ -100,7 +100,7 @@ public class PackageGenerator {
         int width = Configuration.instance.randomGenerator.nextInt(10);
         int length = Configuration.instance.randomGenerator.nextInt(25-explosive.length());
         for (int counter = 0; counter<explosive.length(); counter++){
-            content[height][width][length+counter] = explosive.charAt(counter);
+            content[length+counter][width][height] = explosive.charAt(counter);
         }
         return content;
     }

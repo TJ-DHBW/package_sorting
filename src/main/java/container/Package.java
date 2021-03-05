@@ -1,6 +1,6 @@
 package container;
 
-import unordered.PacketType;
+import unordered.PackageType;
 
 public class Package {
     /**
@@ -15,11 +15,11 @@ public class Package {
      * Within: [01067-99998]]
      */
     private String zipCode;
-    private PacketType type;
+    private PackageType type;
     /**
      * Within: [1.00 bis 5.00]
      */
-    private float weight;   //TODO oder double?
+    private float weight;
 
     //region Getter and Setter
     public String getId() {
@@ -34,7 +34,7 @@ public class Package {
         return zipCode;
     }
 
-    public PacketType getType() {
+    public PackageType getType() {
         return type;
     }
 
@@ -54,7 +54,7 @@ public class Package {
         this.zipCode = zipCode;
     }
 
-    public void setType(PacketType type) {
+    public void setType(PackageType type) {
         this.type = type;
     }
 

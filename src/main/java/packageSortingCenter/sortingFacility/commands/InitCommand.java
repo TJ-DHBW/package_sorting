@@ -7,7 +7,7 @@ import container.Pallet;
 import container.lkw.LKW;
 import container.lkw.LKWTrailer;
 import packageSortingCenter.sortingFacility.SortingFacility;
-import unordered.PacketType;
+import unordered.PackageType;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -40,7 +40,7 @@ public class InitCommand implements ISortingFacilityCommand {
                 packageToGenerate.setId(generalData[0]);
                 packageToGenerate.setContent(getContentAsChar(generalData[1]));
                 packageToGenerate.setZipCode(generalData[2]);
-                packageToGenerate.setType(PacketType.valueOf(generalData[3]));
+                packageToGenerate.setType(PackageType.valueOf(generalData[3]));
                 packageToGenerate.setWeight(Float.parseFloat(generalData[4]));
                 packages.put(packageToGenerate.getId(), packageToGenerate);
             }

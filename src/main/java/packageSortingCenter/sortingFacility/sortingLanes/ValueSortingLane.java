@@ -1,7 +1,7 @@
 package packageSortingCenter.sortingFacility.sortingLanes;
 
 import container.Package;
-import unordered.PacketType;
+import unordered.PackageType;
 
 public class ValueSortingLane extends SortingLane {
 
@@ -11,7 +11,7 @@ public class ValueSortingLane extends SortingLane {
 
     @Override
     public void sort(Package packageToSort) {
-        if(canHandlePackage(packageToSort, PacketType.VALUE)){
+        if(canHandlePackage(packageToSort, PackageType.VALUE)){
             if(scanner.scan(packageToSort)){
                 System.out.println("Package with explosives detected!\nPackage: " + packageToSort);
                 return;

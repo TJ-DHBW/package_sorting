@@ -2,9 +2,8 @@ package container.generator;
 
 import base.Configuration;
 import container.Package;
-import unordered.PacketType;
+import unordered.PackageType;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,13 +27,13 @@ public class PackageGenerator {
             packageGenerated.setZipCode(zipCodeRandom());
             packageGenerated.setContent(contentRandom());
             if(packageNumber<Configuration.instance.numberOfPackages*0.8){
-                packageGenerated.setType(PacketType.NORMAL);
+                packageGenerated.setType(PackageType.NORMAL);
             }
             else if (packageNumber<Configuration.instance.numberOfPackages*0.95){
-                packageGenerated.setType(PacketType.EXPRESS);
+                packageGenerated.setType(PackageType.EXPRESS);
             }
             else{
-                packageGenerated.setType(PacketType.VALUE);
+                packageGenerated.setType(PackageType.VALUE);
             }
             packages.add(packageGenerated);
         }

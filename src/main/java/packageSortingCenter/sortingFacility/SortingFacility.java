@@ -18,7 +18,6 @@ public class SortingFacility implements ISortingFacility{
     private final StoragePlace<Box> boxStoragePlace;
     private final StoragePlace<Pallet> palletStoragePlace;
     private final StorageLane[] storageLanes;
-    //TODO Eins reterded Sensor for ze StorageLane/s.
     private final SortingLane[] sortingLanes;
 
 
@@ -36,7 +35,7 @@ public class SortingFacility implements ISortingFacility{
                 new StorageLane(600)};
         this.sortingLanes = new SortingLane[]{new NormalSortingLane(),
                 new ValueSortingLane(),
-                new ExpressSortingLane()}; //TODO rename PacketType to PackageType
+                new ExpressSortingLane()};
         this.sortingLanes[0].setSuccessor(this.sortingLanes[1]);
         this.sortingLanes[1].setSuccessor(this.sortingLanes[2]);
 

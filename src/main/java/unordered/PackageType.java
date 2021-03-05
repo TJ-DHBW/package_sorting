@@ -1,5 +1,5 @@
 package unordered;
 
-public enum PacketType {
+public enum PackageType {
     NORMAL, EXPRESS, VALUE
 }

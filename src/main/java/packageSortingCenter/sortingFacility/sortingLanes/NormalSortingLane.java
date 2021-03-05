@@ -2,7 +2,7 @@ package packageSortingCenter.sortingFacility.sortingLanes;
 
 import container.Package;
 import packageSortingCenter.Report.ReportInformationCollector;
-import unordered.PacketType;
+import unordered.PackageType;
 
 public class NormalSortingLane extends SortingLane {
 

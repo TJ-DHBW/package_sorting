@@ -18,6 +18,8 @@ public class PackageSortingCenter {
     private final Terminal terminal;
     private final PalletIntermediateStorage palletIntermediateStorage = new PalletIntermediateStorage();
 
+    private Integer currentLKW = 0;
+
     public PackageSortingCenter() {
         this.unloadingZones = new UnloadingZone[] {new UnloadingZone(),
                 new UnloadingZone(),
@@ -72,6 +74,14 @@ public class PackageSortingCenter {
 
     public CentralControlUnit getCentralControlUnit() {
         return centralControlUnit;
+    }
+
+    public Integer getCurrentLKW() {
+        return currentLKW;
+    }
+
+    public void setCurrentLKW(Integer currentLKW) {
+        this.currentLKW = currentLKW;
     }
 
     //endregion

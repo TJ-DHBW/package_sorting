@@ -14,7 +14,6 @@ import java.util.HashMap;
 public class SortingFacility implements ISortingFacility{
     private final HashMap<String, ISortingFacilityCommand> commands;
     private LkwWaitingArea lkwWaitingArea = new LkwWaitingArea();
-
     private final Robot prestoredRobot;
     private final StoragePlace<Box> boxStoragePlace;
     private final StoragePlace<Pallet> palletStoragePlace;

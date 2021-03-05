@@ -1,6 +1,7 @@
 package packageSortingCenter.Report;
 
 import container.Package;
+
 import java.util.ArrayList;
 
 public class ReportInformationCollector {

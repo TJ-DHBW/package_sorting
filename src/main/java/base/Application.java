@@ -1,20 +1,13 @@
 package base;
 
-import container.Box;
-import container.Package;
-import container.Pallet;
-import container.generator.*;
-import container.lkw.LKW;
 import packageSortingCenter.PackageSortingCenter;
 import packageSortingCenter.employee.*;
 import packageSortingCenter.permissions.IDCard;
 import packageSortingCenter.sortingFacility.SortingFacility;
-import packageSortingCenter.sortingFacility.SortingFacilityProxy;
 import packageSortingCenter.terminal.Terminal;
 import packageSortingCenter.terminal.TouchPad;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Application {
     public static void main(String[] args) throws IOException {

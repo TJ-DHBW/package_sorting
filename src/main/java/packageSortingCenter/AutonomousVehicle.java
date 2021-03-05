@@ -1,12 +1,9 @@
 package packageSortingCenter;
 
-import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 import container.Pallet;
-import container.lkw.LKW;
 import packageSortingCenter.centralControlUnit.events.general.LKWArrivedEvent;
 import packageSortingCenter.centralControlUnit.events.zsEvents.LKWUnloadedEvent;
-import packageSortingCenter.sortingFacility.StoragePlace;
 public class AutonomousVehicle {
     PackageSortingCenter packageSortingCenter;
     private int id;

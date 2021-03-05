@@ -2,8 +2,6 @@ package packageSortingCenter;
 
 import container.lkw.LKW;
 
-import java.util.ArrayList;
-
 public class LkwWaitingArea {
     private LKW[] lkws;
 

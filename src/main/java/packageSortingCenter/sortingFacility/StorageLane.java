@@ -1,6 +1,5 @@
 package packageSortingCenter.sortingFacility;
 
-import container.Box;
 import container.Package;
 
 public class StorageLane {

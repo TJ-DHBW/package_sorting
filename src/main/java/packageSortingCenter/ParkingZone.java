@@ -1,8 +1,5 @@
 package packageSortingCenter;
 
-import container.Pallet;
-import packageSortingCenter.sortingFacility.SortingFacility;
-
 public class ParkingZone {
     private PackageSortingCenter packageSortingCenter;
     private ParkingSpot[] parkingSpots;

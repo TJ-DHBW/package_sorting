@@ -2,8 +2,8 @@ package packageSortingCenter.sortingFacility;
 
 import com.google.common.eventbus.Subscribe;
 import container.Box;
-import container.Pallet;
 import container.Package;
+import container.Pallet;
 import packageSortingCenter.centralControlUnit.events.general.ActivateRobotEvent;
 
 import javax.annotation.Nonnull;

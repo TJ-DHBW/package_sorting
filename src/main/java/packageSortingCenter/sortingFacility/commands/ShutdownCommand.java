@@ -3,7 +3,6 @@ package packageSortingCenter.sortingFacility.commands;
 import packageSortingCenter.UnloadingZone;
 import packageSortingCenter.sortingFacility.SortingFacility;
 import packageSortingCenter.sortingFacility.sortingLanes.Scanner;
-import packageSortingCenter.sortingFacility.sortingLanes.SortingLane;
 
 public class ShutdownCommand implements ISortingFacilityCommand {
     private final SortingFacility sortingFacility;

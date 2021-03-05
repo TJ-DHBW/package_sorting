@@ -1,9 +1,9 @@
 package container.generator;
 
 import container.Box;
+import container.Package;
 import container.Pallet;
 import container.lkw.LKW;
-import container.Package;
 
 import java.io.IOException;
 import java.util.ArrayList;

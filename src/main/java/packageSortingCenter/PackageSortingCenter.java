@@ -1,10 +1,8 @@
 package packageSortingCenter;
 
-import container.Pallet;
 import packageSortingCenter.centralControlUnit.CentralControlUnit;
 import packageSortingCenter.sortingFacility.SortingFacility;
 import packageSortingCenter.sortingFacility.StorageLane;
-import packageSortingCenter.sortingFacility.StoragePlace;
 import packageSortingCenter.terminal.Terminal;
 
 import java.util.Arrays;

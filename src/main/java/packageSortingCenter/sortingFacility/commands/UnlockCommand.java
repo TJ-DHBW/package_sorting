@@ -11,7 +11,6 @@ public class UnlockCommand implements ISortingFacilityCommand {
 
     @Override
     public void execute() {
-        //TODO implement unlock
-        System.out.println("Unlock needs to be implemented.");
+        sortingFacility.setLocked(false);
     }
 }

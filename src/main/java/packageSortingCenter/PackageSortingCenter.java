@@ -29,7 +29,7 @@ public class PackageSortingCenter {
                 new UnloadingZone(),
                 new UnloadingZone()
         };
-        this.sortingFacility = new SortingFacility();
+        this.sortingFacility = new SortingFacility(this);
         this.parkingZone = new ParkingZone(this);
         this.terminal = new Terminal(sortingFacility);
 

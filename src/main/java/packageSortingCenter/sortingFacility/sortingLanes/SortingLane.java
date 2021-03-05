@@ -34,4 +34,12 @@ public abstract class SortingLane {
     public void setSuccessor(SortingLane successor) {
         this.successor = successor;
     }
+
+    public Scanner getScanner() {
+        return scanner;
+    }
+
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
 }

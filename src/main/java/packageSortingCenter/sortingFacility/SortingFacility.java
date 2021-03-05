@@ -1,6 +1,8 @@
 package packageSortingCenter.sortingFacility;
 import container.Pallet;
 import packageSortingCenter.LkwWaitingArea;
+import packageSortingCenter.PackageSortingCenter;
+import packageSortingCenter.employee.Employee;
 import packageSortingCenter.sortingFacility.commands.*;
 import packageSortingCenter.sortingFacility.sortingLanes.ExpressSortingLane;
 import packageSortingCenter.sortingFacility.sortingLanes.NormalSortingLane;
@@ -17,11 +19,13 @@ public class SortingFacility implements ISortingFacility{
     private final StoragePlace<Box> boxStoragePlace;
     private final StoragePlace<Pallet> palletStoragePlace;
     private final StorageLane[] storageLanes;
+    private final PackageSortingCenter packageSortingCenter;
     //TODO Eins reterded Sensor for ze StorageLane/s.
     private final SortingLane[] sortingLanes;
 
 
-    public SortingFacility() {
+    public SortingFacility(PackageSortingCenter packageSortingCenter) {
+        this.packageSortingCenter = packageSortingCenter;
         this.prestoredRobot = new Robot();
         this.boxStoragePlace = new StoragePlace<>();
         this.palletStoragePlace = new StoragePlace<>();
@@ -128,6 +132,14 @@ public class SortingFacility implements ISortingFacility{
 
     public StorageLane[] getStorageLanes() {
         return storageLanes;
+    }
+
+    public PackageSortingCenter getPackageSortingCenter() {
+        return packageSortingCenter;
+    }
+
+    public SortingLane[] getSortingLanes() {
+        return sortingLanes;
     }
 
     //endregion

@@ -7,15 +7,15 @@ import packageSortingCenter.sortingFacility.SortingFacility;
 
 public class NextCommand implements ISortingFacilityCommand {
     private final SortingFacility sortingFacility;
-    private final PackageSortingCenter packageSortingCenter;
 
-    public NextCommand(SortingFacility sortingFacility, PackageSortingCenter packageSortingCenter) {
-        this.packageSortingCenter = packageSortingCenter;
+
+    public NextCommand(SortingFacility sortingFacility) {
         this.sortingFacility = sortingFacility;
     }
 
     @Override
     public void execute() {
+        PackageSortingCenter packageSortingCenter = sortingFacility.getPackageSortingCenter();
         for(UnloadingZone unloadingZone : packageSortingCenter.getUnloadingZones()){
             if(unloadingZone.getCurrentLKWUnloading() != null){
                 unloadingZone.setCurrentLKWUnloading(null);

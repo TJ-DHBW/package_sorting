@@ -66,7 +66,7 @@ public class TouchPad {
         if(currentProxy == null){
             System.out.println("Please authenticate yourself first.");
         }else{
-            currentProxy.changeSearchAlgorithm(SearchAlgorithm.KMP);
+            currentProxy.changeSearchAlgorithm(SearchAlgorithm.RK);
         }
     }
 

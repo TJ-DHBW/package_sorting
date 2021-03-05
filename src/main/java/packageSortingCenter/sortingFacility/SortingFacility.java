@@ -1,7 +1,6 @@
 package packageSortingCenter.sortingFacility;
 import container.Pallet;
 import packageSortingCenter.LkwWaitingArea;
-import packageSortingCenter.employee.Employee;
 import packageSortingCenter.sortingFacility.commands.*;
 import packageSortingCenter.sortingFacility.sortingLanes.ExpressSortingLane;
 import packageSortingCenter.sortingFacility.sortingLanes.NormalSortingLane;
@@ -80,7 +79,7 @@ public class SortingFacility implements ISortingFacility{
             case BM:
                 if(!executeIfFound("7.1")) throw new IllegalStateException("There should be a command to execute!");
                 return;
-            case KMP:
+            case RK:
                 if(!executeIfFound("7.2")) throw new IllegalStateException("There should be a command to execute!");
                 return;
             default:
@@ -100,7 +99,7 @@ public class SortingFacility implements ISortingFacility{
         ret.put("5", new UnlockCommand(this));
         ret.put("6", new ShowStatisticsCommand(this));
         ret.put("7.1", new ChangeSearchAlgorithmCommand(this, SearchAlgorithm.BM));
-        ret.put("7.2", new ChangeSearchAlgorithmCommand(this, SearchAlgorithm.KMP));
+        ret.put("7.2", new ChangeSearchAlgorithmCommand(this, SearchAlgorithm.RK));
 
         return ret;
     }

@@ -28,4 +28,8 @@ public enum Configuration {
     //encryption
     public final String secret = "thisIsTheSecretKey";
     public final IEncryptionStrategy encryptionStrategy = new DES(secret);
+
+    //Components
+    public String componentsFolder = "components";
+    public String libraryPath = "build" + fileSeparator + "libs";
 }

@@ -8,8 +8,12 @@ import java.util.ArrayList;
 public abstract class SortingLane {
     private SortingLane successor;
     protected ArrayList<Package> packages;
+    protected Scanner scanner;
 
-    //TODO Test for explosives
+    public SortingLane() {
+        this.scanner = new Scanner();
+    }
+
 
     public void sort(Package packageToSort){
         if(getSuccessor() != null){

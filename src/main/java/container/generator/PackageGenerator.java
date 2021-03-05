@@ -96,11 +96,11 @@ public class PackageGenerator {
     }
 
     public char[][][] hideExplosive(char[][][] content){
-        int height = Configuration.instance.randomGenerator.nextInt(10);
+        int height = Configuration.instance.randomGenerator.nextInt(10-explosive.length()+1);
         int width = Configuration.instance.randomGenerator.nextInt(10);
-        int length = Configuration.instance.randomGenerator.nextInt(25-explosive.length());
+        int length = Configuration.instance.randomGenerator.nextInt(25);
         for (int counter = 0; counter<explosive.length(); counter++){
-            content[length+counter][width][height] = explosive.charAt(counter);
+            content[length][width][height+counter] = explosive.charAt(counter);
         }
         return content;
     }

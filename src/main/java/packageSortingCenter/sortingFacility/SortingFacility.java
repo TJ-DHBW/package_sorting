@@ -1,9 +1,12 @@
 package packageSortingCenter.sortingFacility;
 
+import com.google.common.eventbus.Subscribe;
 import container.Box;
 import container.Pallet;
+import container.Package;
 import packageSortingCenter.LkwWaitingArea;
 import packageSortingCenter.PackageSortingCenter;
+import packageSortingCenter.centralControlUnit.events.general.SortStorageLanesEvent;
 import packageSortingCenter.sortingFacility.commands.*;
 import packageSortingCenter.sortingFacility.sortingLanes.ExpressSortingLane;
 import packageSortingCenter.sortingFacility.sortingLanes.NormalSortingLane;
@@ -116,6 +119,18 @@ public class SortingFacility implements ISortingFacility{
         }
         return false;
     }
+
+    @Subscribe
+    public void receive(SortStorageLanesEvent event){
+        // empty Storage Lanes into sorting lanes
+        for(StorageLane storageLane : storageLanes){
+            Package next;
+            while((next = storageLane.pull()) != null){
+                sortingLanes[0].sort(next);
+            }
+        }
+    }
+
 
     public SortingFacilityProxy getProxy(String employeeType){
         return new SortingFacilityProxy(this, employeeType);

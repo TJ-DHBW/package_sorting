@@ -1,5 +1,5 @@
 package packageSortingCenter.sortingFacility;
 
-public interface ISensorStorageLaneListener {
+public interface IStorageLaneListener {
     void storageLaneFilled(int id);
 }

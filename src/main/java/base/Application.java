@@ -13,6 +13,8 @@ public class Application {
     public static void main(String[] args) throws IOException {
         System.out.println("Hello World!");
         terminalStuff();
+
+        //TODO write a testable main :-)
     }
 
     public static void terminalStuff(){

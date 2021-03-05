@@ -1,25 +1,17 @@
 package packageSortingCenter.sortingFacility;
 
-import java.util.ArrayList;
+import packageSortingCenter.centralControlUnit.CentralControlUnit;
+import packageSortingCenter.centralControlUnit.events.zsEvents.StorageLaneFullEvent;
 
-public class Sensor {
-    private ArrayList<ISensorStorageLaneListener> listenerList;
-    private int storageLaneId;
+public class Sensor implements IStorageLaneListener {
+    private CentralControlUnit centralControlUnit;
 
-    public Sensor(int storageLaneId) {
-        this.storageLaneId = storageLaneId;
+    @Override
+    public void storageLaneFilled(int id) {
+        centralControlUnit.notifyEventbus(new StorageLaneFullEvent(id));
     }
 
-    public void storageLaneIsFilled(){
-        for (ISensorStorageLaneListener listener : listenerList) {
-            listener.storageLaneFilled(storageLaneId);
-        }
-    }
-    public void addListener(ISensorStorageLaneListener listener) {
-        listenerList.add(listener);
-    }
-
-    public void removeListener(ISensorStorageLaneListener listener) {
-        listenerList.remove(listener);
+    public void connectToCentralControlUnit(CentralControlUnit centralControlUnit){
+        this.centralControlUnit = centralControlUnit;
     }
 }

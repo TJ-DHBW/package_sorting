@@ -39,10 +39,12 @@ public class PackageSortingCenter {
         for(ParkingSpot parkingSpot : parkingZone.getParkingSpots()) {
             centralControlUnit.subscribe(parkingSpot.getParkedVehicle());
         }
-        for(StorageLane storageLane : this.sortingFacility.getStorageLanes()){
-            storageLane.getSensor().addListener(centralControlUnit);
-        }
         centralControlUnit.subscribe(sortingFacility.getPrestoredRobot());
+        centralControlUnit.subscribe(sortingFacility);
+
+        for(StorageLane lane : sortingFacility.getStorageLanes()){
+            lane.getSensor().connectToCentralControlUnit(centralControlUnit);
+        }
     }
 
     //region Getter and Setter

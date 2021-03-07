@@ -22,9 +22,12 @@ public class NextCommand implements ISortingFacilityCommand {
                 unloadingZone.setCurrentLKWUnloading(null);
             }
         }
+
         int randomUnloadingZone = Configuration.instance.randomGenerator.nextInt(packageSortingCenter.getUnloadingZones().length);
         packageSortingCenter.getUnloadingZones()[randomUnloadingZone]
                 .setCurrentLKWUnloading(packageSortingCenter.getSortingFacility().getLkwWaitingArea().getLkws()[packageSortingCenter.getCurrentLKW()]);
+        packageSortingCenter.getSortingFacility().getLkwWaitingArea().getLkws()[packageSortingCenter.getCurrentLKW()] = null;
+
         ReportInformationCollector.getInstance().setNumberOfHandledLkw(ReportInformationCollector.getInstance().getNumberOfHandledLkw()+1);
     }
 }

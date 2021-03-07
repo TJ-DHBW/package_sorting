@@ -16,8 +16,6 @@ public class RabinKarp {
         }
     }
 
-    //TODO Test if this search still works.
-
 
     //Modified from: https://www.geeksforgeeks.org/java-program-for-rabin-karp-algorithm-for-pattern-searching/
 

@@ -10,7 +10,7 @@ public class ScenarioTests {
     private EventReciever eventReciever;
 
     @Before
-    public void initialize(){
+    public void initialize() {
         application = new Application();
         application.initPackageSortingCenter();
 
@@ -19,12 +19,12 @@ public class ScenarioTests {
     }
 
     @Test
-    public void correctNumberOfComponentsAfterSetup(){
+    public void correctNumberOfComponentsAfterSetup() {
         PackageSortingCenter psc = application.getPackageSortingCenter();
         Assert.assertNotNull(psc);
 
         Assert.assertNotNull(psc.getCentralControlUnit());
-        
+
         Assert.assertNotNull(psc.getUnloadingZones());
         Assert.assertEquals(7, psc.getUnloadingZones().length);
 
@@ -36,7 +36,7 @@ public class ScenarioTests {
     }
 
     @Test
-    public void autonomousVehicleUnloadsWholeLkw(){
+    public void autonomousVehicleUnloadsWholeLkw() {
         application.runSimulation();
 
         Assert.assertTrue(eventReciever.receivedEventOfClass(LKWUnloadedEvent.class));

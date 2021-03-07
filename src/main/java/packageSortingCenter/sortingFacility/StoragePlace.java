@@ -10,7 +10,7 @@ public class StoragePlace<T> {
         this.storage = new ArrayList<>();
     }
 
-    public void store(T objectToStore){
+    public void store(T objectToStore) {
         storage.add(objectToStore);
     }
 
@@ -18,7 +18,7 @@ public class StoragePlace<T> {
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        for(T obj : storage){
+        for (T obj : storage) {
             builder.append(obj).append(';');
         }
 

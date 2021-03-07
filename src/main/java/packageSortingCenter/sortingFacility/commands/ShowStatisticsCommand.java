@@ -18,7 +18,7 @@ public class ShowStatisticsCommand implements ISortingFacilityCommand {
     }
 
     @Override
-    public void execute(){
+    public void execute() {
         Report report = new Report.Builder()
                 .date(new Date())
                 .numberOfHandledLKW(ReportInformationCollector.getInstance().getNumberOfHandledLkw())

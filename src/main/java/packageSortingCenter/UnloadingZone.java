@@ -4,10 +4,10 @@ import container.lkw.LKW;
 import packageSortingCenter.unloadingZone.Sensor;
 
 public class UnloadingZone {
+    private static int nextId = 0;
     private LKW currentLKWUnloading;
     private Sensor sensor;
     private int id;
-    private static int nextId = 0;
 
     public UnloadingZone() {
         this.id = nextId++;
@@ -21,7 +21,7 @@ public class UnloadingZone {
 
     public void setCurrentLKWUnloading(LKW currentLKWUnloading) {
         this.currentLKWUnloading = currentLKWUnloading;
-        if(currentLKWUnloading != null){
+        if (currentLKWUnloading != null) {
             sensor.lkwDetected();
         }
     }

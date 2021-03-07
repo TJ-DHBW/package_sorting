@@ -6,66 +6,66 @@ import packageSortingCenter.sortingFacility.SortingFacilityProxy;
 public class TouchPad {
     private SortingFacilityProxy currentProxy;
 
-    public void pressInitButton(){
-        if(currentProxy == null){
+    public void pressInitButton() {
+        if (currentProxy == null) {
             System.out.println("Please authenticate yourself first.");
-        }else{
+        } else {
             currentProxy.init();
         }
     }
 
-    public void pressNextButton(){
-        if(currentProxy == null){
+    public void pressNextButton() {
+        if (currentProxy == null) {
             System.out.println("Please authenticate yourself first.");
-        }else{
+        } else {
             currentProxy.next();
         }
     }
 
-    public void pressShutdownButton(){
-        if(currentProxy == null){
+    public void pressShutdownButton() {
+        if (currentProxy == null) {
             System.out.println("Please authenticate yourself first.");
-        }else{
+        } else {
             currentProxy.shutdown();
         }
     }
 
-    public void pressLockButton(){
-        if(currentProxy == null){
+    public void pressLockButton() {
+        if (currentProxy == null) {
             System.out.println("Please authenticate yourself first.");
-        }else{
+        } else {
             currentProxy.lock();
         }
     }
 
-    public void pressUnlockButton(){
-        if(currentProxy == null){
+    public void pressUnlockButton() {
+        if (currentProxy == null) {
             System.out.println("Please authenticate yourself first.");
-        }else{
+        } else {
             currentProxy.unlock();
         }
     }
 
-    public void pressStatisticsButton(){
-        if(currentProxy == null){
+    public void pressStatisticsButton() {
+        if (currentProxy == null) {
             System.out.println("Please authenticate yourself first.");
-        }else{
+        } else {
             currentProxy.showStatistics();
         }
     }
 
-    public void pressSearchAlgorithmToBMButton(){
-        if(currentProxy == null){
+    public void pressSearchAlgorithmToBMButton() {
+        if (currentProxy == null) {
             System.out.println("Please authenticate yourself first.");
-        }else{
+        } else {
             currentProxy.changeSearchAlgorithm(SearchAlgorithm.BM);
         }
     }
 
-    public void pressSearchAlgorithmToKMPButton(){
-        if(currentProxy == null){
+    public void pressSearchAlgorithmToKMPButton() {
+        if (currentProxy == null) {
             System.out.println("Please authenticate yourself first.");
-        }else{
+        } else {
             currentProxy.changeSearchAlgorithm(SearchAlgorithm.RK);
         }
     }

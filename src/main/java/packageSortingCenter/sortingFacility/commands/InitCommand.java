@@ -3,11 +3,11 @@ package packageSortingCenter.sortingFacility.commands;
 import base.Configuration;
 import container.Box;
 import container.Package;
+import container.PackageType;
 import container.Pallet;
 import container.lkw.LKW;
 import container.lkw.LKWTrailer;
 import packageSortingCenter.sortingFacility.SortingFacility;
-import container.PackageType;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -90,7 +90,7 @@ public class InitCommand implements ISortingFacilityCommand {
         return generatedBoxes;
     }
 
-    public HashMap<String, Pallet> generatePalletsFromCSV(HashMap<String, Box> boxes){
+    public HashMap<String, Pallet> generatePalletsFromCSV(HashMap<String, Box> boxes) {
         HashMap<String, Pallet> pallets = new HashMap<>();
         try {
             String line;
@@ -98,7 +98,7 @@ public class InitCommand implements ISortingFacilityCommand {
                     (Configuration.instance.exportDirectory + "base_pallet.csv"));
             while ((line = bufferedReader.readLine()) != null) {
                 String[] generalData = line.split(",");
-                if(pallets.get(generalData[0]) == null){
+                if (pallets.get(generalData[0]) == null) {
                     Pallet pallet = new Pallet();
                     pallet.setId(Integer.parseInt(generalData[0]));
                     pallets.put(generalData[0], pallet);
@@ -109,9 +109,10 @@ public class InitCommand implements ISortingFacilityCommand {
         } catch (IOException fileNotFoundException) {
             fileNotFoundException.printStackTrace();
         }
-        return  pallets;
+        return pallets;
     }
-    public ArrayList<LKW> generateLkwFromCSV(HashMap<String, Pallet> pallets){
+
+    public ArrayList<LKW> generateLkwFromCSV(HashMap<String, Pallet> pallets) {
         HashMap<String, LKW> lkws = new HashMap<>();
         try {
             String line;
@@ -119,14 +120,14 @@ public class InitCommand implements ISortingFacilityCommand {
                     (Configuration.instance.exportDirectory + "base_lkw.csv"));
             while ((line = bufferedReader.readLine()) != null) {
                 String[] generalData = line.split(",");
-                if(lkws.get(generalData[0]) == null){
+                if (lkws.get(generalData[0]) == null) {
                     LKW lkw = new LKW();
                     LKWTrailer trailer = new LKWTrailer();
                     lkw.setId(generalData[0]);
                     lkw.setTrailer(trailer);
                     lkws.put(lkw.getId(), lkw);
                 }
-                int side = generalData[1].equals("left")?0:1;
+                int side = generalData[1].equals("left") ? 0 : 1;
                 lkws.get(generalData[0]).getTrailer().getPallets()[side][Integer.parseInt(generalData[2])]
                         = pallets.get(generalData[3]);
             }
@@ -135,7 +136,7 @@ public class InitCommand implements ISortingFacilityCommand {
         }
 
         ArrayList<LKW> lkwsAsArray = new ArrayList<>();
-        for(String lkwId : lkws.keySet()){
+        for (String lkwId : lkws.keySet()) {
             lkwsAsArray.add(lkws.get(lkwId));
         }
         return lkwsAsArray;

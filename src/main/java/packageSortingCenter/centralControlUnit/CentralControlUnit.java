@@ -27,15 +27,15 @@ public class CentralControlUnit implements ISensorUnloadingZoneListener {
         subscribe(this);
     }
 
-    public void subscribe(Object o){
+    public void subscribe(Object o) {
         eventBus.register(o);
     }
 
-    public void unsubscribe(Object o){
+    public void unsubscribe(Object o) {
         eventBus.unregister(o);
     }
 
-    public void notifyEventbus(ZSEvent event){
+    public void notifyEventbus(ZSEvent event) {
         eventBus.post(event);
     }
 
@@ -47,15 +47,15 @@ public class CentralControlUnit implements ISensorUnloadingZoneListener {
 
 
     @Subscribe
-    public void receive(LKWUnloadedEvent event){
+    public void receive(LKWUnloadedEvent event) {
         eventBus.post(new ActivateRobotEvent());
     }
 
     @Subscribe
-    public void receive(StorageLaneFullEvent event){
+    public void receive(StorageLaneFullEvent event) {
         filledStorageLanes.add(event.getId());
         System.out.println("StorageLane " + event.getId() + " is now full.");
-        if(filledStorageLanes.size() >= 8){
+        if (filledStorageLanes.size() >= 8) {
             System.out.println("All StorageLanes are full. Activate SortingLanes.");
             eventBus.post(new SortStorageLanesEvent());
             filledStorageLanes = new HashSet<>();

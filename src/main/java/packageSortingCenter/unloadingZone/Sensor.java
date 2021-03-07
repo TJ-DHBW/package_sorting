@@ -7,18 +7,17 @@ public class Sensor {
     private ArrayList<ISensorUnloadingZoneListener> listenerList;
     private int zoneId;
 
-    public Sensor(int zoneId){
+    public Sensor(int zoneId) {
         this.zoneId = zoneId;
         listenerList = new ArrayList<>();
     }
 
-    public void lkwDetected(){
-        if(activated) {
+    public void lkwDetected() {
+        if (activated) {
             for (ISensorUnloadingZoneListener listeners : listenerList) {
                 listeners.lkwArrived(zoneId);
             }
-        }
-        else{
+        } else {
             System.out.println("Sensor not activated");
         }
     }

@@ -3,8 +3,8 @@ package packageSortingCenter.sortingFacility;
 public enum SearchAlgorithm {
     BM, RK;
 
-    public String toProjectName(){
-        switch(this){
+    public String toProjectName() {
+        switch (this) {
             case BM:
                 return "boyerMoore";
             case RK:
@@ -13,8 +13,8 @@ public enum SearchAlgorithm {
         return null;
     }
 
-    public String toMainClassName(){
-        switch(this){
+    public String toMainClassName() {
+        switch (this) {
             case BM:
                 return "packageSortingCenter.sortingFacility.sortingLanes.BoyerMoore";
             case RK:

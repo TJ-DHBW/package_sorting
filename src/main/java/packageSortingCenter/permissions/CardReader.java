@@ -8,28 +8,28 @@ public class CardReader {
     private IDCard idCard;
 
 
-    public void swipeCard(IDCard card){
-        if(card.shouldBeAccepted()){
+    public void swipeCard(IDCard card) {
+        if (card.shouldBeAccepted()) {
             idCard = card;
-        }else{
+        } else {
             System.out.println("Card not accepted.");
         }
     }
 
-    public IDCard enterPinOrSuperPin(String pin){
-        if(idCard == null){
+    public IDCard enterPinOrSuperPin(String pin) {
+        if (idCard == null) {
             System.out.println("Please swipe a valid card before entering a pin.");
             return null;
         }
 
         boolean success = idCard.checkInput(pin);
 
-        if(success){
+        if (success) {
             System.out.println("ID verified.");
             IDCard tmp = idCard;
             idCard = null;
             return tmp;
-        }else{
+        } else {
             System.out.println("Could not verify.");
             idCard = null;
             return null;

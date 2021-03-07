@@ -4,18 +4,9 @@ public class BoyerMoore {
     private static final BoyerMoore instance = new BoyerMoore();
     public Port port = new Port();
 
-    public static BoyerMoore getInstance(){
+    public static BoyerMoore getInstance() {
         return instance;
     }
-
-    public class Port implements ISearchAlgorithm {
-
-        @Override
-        public int search(char[] input, char[] pattern) {
-            return innerSearch(input, pattern);
-        }
-    }
-
 
     private static int[] makeOffsetTable(char[] pattern) {
         int[] table = new int[pattern.length];
@@ -88,6 +79,14 @@ public class BoyerMoore {
         }
 
         return table;
+    }
+
+    public class Port implements ISearchAlgorithm {
+
+        @Override
+        public int search(char[] input, char[] pattern) {
+            return innerSearch(input, pattern);
+        }
     }
 }
 

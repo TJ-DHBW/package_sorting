@@ -4,10 +4,11 @@ import com.google.common.eventbus.Subscribe;
 import container.Pallet;
 import packageSortingCenter.centralControlUnit.events.general.LKWArrivedEvent;
 import packageSortingCenter.centralControlUnit.events.zsEvents.LKWUnloadedEvent;
+
 public class AutonomousVehicle {
+    private static int nextId = 0;
     PackageSortingCenter packageSortingCenter;
     private int id;
-    private static int nextId = 0;
     private ParkingSpot parkingSpot;
 
 
@@ -19,7 +20,7 @@ public class AutonomousVehicle {
 
     public void unloadLKW(int unloadingZoneId) {
         parkingSpot.setParkedVehicle(null);
-        System.out.println("Vehicle "+id+" has left parking spot");
+        System.out.println("Vehicle " + id + " has left parking spot");
         for (UnloadingZone unloadingZone : packageSortingCenter.getUnloadingZones()) {
             if (unloadingZone.getId() == unloadingZoneId) {
                 for (int sideCounter = 0; sideCounter < 2; sideCounter++) {
@@ -32,10 +33,11 @@ public class AutonomousVehicle {
             }
         }
         parkingSpot.setParkedVehicle(this);
-        System.out.println("Vehicle "+id+" has returned to parking spot");
+        System.out.println("Vehicle " + id + " has returned to parking spot");
         packageSortingCenter.getCentralControlUnit().notifyEventbus(new LKWUnloadedEvent());
         System.out.println("CentralControlUnit has been informed, that vehicle has returned to spot");
     }
+
     @SuppressWarnings("UnstableApiUsage")
     @Subscribe
     public void receive(LKWArrivedEvent lkwArrivedEvent) {

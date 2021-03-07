@@ -11,9 +11,9 @@ public class IDCardLocked implements IIDCardState {
     }
 
     private void handleWrongInput(IDCard idCard) {
-        if(wrongAttempt){
+        if (wrongAttempt) {
             idCard.setState(new IDCardInvalid());
-        }else{
+        } else {
             wrongAttempt = true;
         }
     }
@@ -29,10 +29,10 @@ public class IDCardLocked implements IIDCardState {
         String[] fields = clearMagnetsripe.split(";");
         String decryptedPin = fields[4];
 
-        if(input.length() == 6 && decryptedPin.startsWith(input)){
+        if (input.length() == 6 && decryptedPin.startsWith(input)) {
             handleRightInput(idCard);
             return true;
-        }else{
+        } else {
             handleWrongInput(idCard);
             return false;
         }

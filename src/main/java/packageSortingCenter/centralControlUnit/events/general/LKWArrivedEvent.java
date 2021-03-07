@@ -1,7 +1,7 @@
 package packageSortingCenter.centralControlUnit.events.general;
 
 
-public class LKWArrivedEvent{
+public class LKWArrivedEvent {
     private int zoneId;
     private int vehicleId;
 

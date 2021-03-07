@@ -27,14 +27,14 @@ public class Terminal {
     }
 
 
-    public void swipeCard(IDCard idCard){
+    public void swipeCard(IDCard idCard) {
         cardReader.swipeCard(idCard);
     }
 
-    public void enterPinOrSuperPin(String pin){
+    public void enterPinOrSuperPin(String pin) {
         IDCard verifiedCard = cardReader.enterPinOrSuperPin(pin);
 
-        if(verifiedCard != null) {
+        if (verifiedCard != null) {
             //Create the Proxy
             String magnetStripeContent = Configuration.instance.encryptionStrategy.decrypt(new String(verifiedCard.getMagnetStripe().getActualContent()));
             String[] fields = magnetStripeContent.split(";");

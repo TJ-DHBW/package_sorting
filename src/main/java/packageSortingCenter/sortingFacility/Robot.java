@@ -16,9 +16,9 @@ public class Robot {
     }
 
 
-    private void emptyIntermediateStorage(){
-        for(Pallet[] storagePosition : sortingFacility.getPackageSortingCenter().getPalletIntermediateStorage().getStoredPallets()){
-            for(int i = 0; i < storagePosition.length; i++){
+    private void emptyIntermediateStorage() {
+        for (Pallet[] storagePosition : sortingFacility.getPackageSortingCenter().getPalletIntermediateStorage().getStoredPallets()) {
+            for (int i = 0; i < storagePosition.length; i++) {
                 Pallet nextPallet = storagePosition[i];
                 storagePosition[i] = null;
                 emptyPallet(nextPallet);
@@ -26,9 +26,9 @@ public class Robot {
         }
     }
 
-    private void emptyPallet(@Nonnull Pallet pallet){
-        for(Box[] palletPosition : pallet.getBoxes()){
-            for(int i = 0; i < palletPosition.length; i++){
+    private void emptyPallet(@Nonnull Pallet pallet) {
+        for (Box[] palletPosition : pallet.getBoxes()) {
+            for (int i = 0; i < palletPosition.length; i++) {
                 Box nextBox = palletPosition[i];
                 palletPosition[i] = null;
                 emptyBox(nextBox);
@@ -38,10 +38,10 @@ public class Robot {
         sortingFacility.getPalletStoragePlace().store(pallet);
     }
 
-    private void emptyBox(@Nonnull Box box){
-        for(Package[][] packageLayer : box.getPackages()){
-            for(Package[] packageSide : packageLayer){
-                for(int i = 0; i < packageSide.length; i++){
+    private void emptyBox(@Nonnull Box box) {
+        for (Package[][] packageLayer : box.getPackages()) {
+            for (Package[] packageSide : packageLayer) {
+                for (int i = 0; i < packageSide.length; i++) {
                     Package nextPackage = packageSide[i];
                     packageSide[i] = null;
                     storePackage(nextPackage);
@@ -52,9 +52,9 @@ public class Robot {
         sortingFacility.getBoxStoragePlace().store(box);
     }
 
-    private void storePackage(@Nonnull Package packageToStore){
-        for(StorageLane lane : sortingFacility.getStorageLanes()){
-            if(lane.put(packageToStore)){
+    private void storePackage(@Nonnull Package packageToStore) {
+        for (StorageLane lane : sortingFacility.getStorageLanes()) {
+            if (lane.put(packageToStore)) {
                 return;
             }
         }
@@ -62,7 +62,7 @@ public class Robot {
     }
 
     @Subscribe
-    public void receive(ActivateRobotEvent event){
+    public void receive(ActivateRobotEvent event) {
         emptyIntermediateStorage();
     }
 }

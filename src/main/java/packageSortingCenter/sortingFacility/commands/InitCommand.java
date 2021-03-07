@@ -52,11 +52,11 @@ public class InitCommand implements ISortingFacilityCommand {
 
     public char[][][] getContentAsChar(String contentAsChar) {
         int charCounter = 0;
-        char[][][] content = new char[10][10][25];
+        char[][][] content = new char[25][10][10];
         for (int height = 0; height < 10; height++) {
             for (int width = 0; width < 10; width++) {
                 for (int length = 0; length < 25; length++) {
-                    content[height][width][length] = contentAsChar.charAt(charCounter);
+                    content[length][width][height] = contentAsChar.charAt(charCounter);
                     charCounter++;
                 }
             }

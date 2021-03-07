@@ -4,6 +4,7 @@ import packageSortingCenter.centralControlUnit.CentralControlUnit;
 import packageSortingCenter.sortingFacility.SortingFacility;
 import packageSortingCenter.sortingFacility.StorageLane;
 import packageSortingCenter.terminal.Terminal;
+import packageSortingCenter.unloadingZone.Sensor;
 
 import java.util.Arrays;
 import java.util.List;
@@ -44,6 +45,10 @@ public class PackageSortingCenter {
 
         for(StorageLane lane : sortingFacility.getStorageLanes()){
             lane.getSensor().connectToCentralControlUnit(centralControlUnit);
+        }
+
+        for(UnloadingZone unloadingZone : unloadingZones){
+            unloadingZone.getSensor().addListener(centralControlUnit);
         }
     }
 

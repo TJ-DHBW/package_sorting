@@ -13,7 +13,7 @@ public class Scanner {
     private static ISearchAlgorithm searchAlgorithm;
 
     public Scanner() {
-        changeSearchAlgorithm(SearchAlgorithm.BM);
+        changeSearchAlgorithm(SearchAlgorithm.RK);
     }
 
     public boolean scan(Package packageToScan){

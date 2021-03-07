@@ -2,7 +2,7 @@ package packageSortingCenter.sortingFacility.sortingLanes;
 
 public class RabinKarp {
     private static final RabinKarp instance = new RabinKarp();
-    public Port port;
+    public Port port = new Port();
 
     public static RabinKarp getInstance(){
         return instance;
@@ -15,8 +15,6 @@ public class RabinKarp {
             return innerSearch(input, pattern, 101);
         }
     }
-
-    //TODO Test if this search still works.
 
 
     //Modified from: https://www.geeksforgeeks.org/java-program-for-rabin-karp-algorithm-for-pattern-searching/

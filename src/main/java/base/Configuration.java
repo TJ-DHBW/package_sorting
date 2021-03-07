@@ -17,10 +17,10 @@ public enum Configuration {
 
     //implementation
     public Integer[] packageIndexToHide = {3,57,100,200};
-    public Integer numberOfPackages = 4800;
-    public Integer numberOfBoxes = 120;
-    public Integer numberOfPallets = 10;
     public Integer numberOfLkw = 1;
+    public Integer numberOfPallets = numberOfLkw * 10;
+    public Integer numberOfBoxes = numberOfPallets * 12;
+    public Integer numberOfPackages = numberOfBoxes * 40;
 
     //random
     public Random randomGenerator = new Random();

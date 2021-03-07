@@ -7,7 +7,7 @@ import container.Pallet;
 import container.lkw.LKW;
 import container.lkw.LKWTrailer;
 import packageSortingCenter.sortingFacility.SortingFacility;
-import unordered.PackageType;
+import container.PackageType;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,7 +1,5 @@
 package container;
 
-import unordered.PackageType;
-
 public class Package {
     /**
      * Consists of chars of the type: [a-z, 0-9]

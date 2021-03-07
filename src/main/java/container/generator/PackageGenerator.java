@@ -2,7 +2,7 @@ package container.generator;
 
 import base.Configuration;
 import container.Package;
-import unordered.PackageType;
+import container.PackageType;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;

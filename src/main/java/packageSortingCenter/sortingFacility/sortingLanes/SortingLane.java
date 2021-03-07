@@ -1,7 +1,7 @@
 package packageSortingCenter.sortingFacility.sortingLanes;
 
 import container.Package;
-import unordered.PackageType;
+import container.PackageType;
 
 import java.util.ArrayList;
 

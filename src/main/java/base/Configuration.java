@@ -5,7 +5,7 @@ import packageSortingCenter.permissions.encryption.IEncryptionStrategy;
 
 import java.util.Random;
 
-public enum Configuration {
+public enum  Configuration {
     instance;
 
     // i/o

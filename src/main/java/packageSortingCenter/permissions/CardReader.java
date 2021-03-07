@@ -1,10 +1,6 @@
 package packageSortingCenter.permissions;
 
 public class CardReader {
-    /*
-    Employee zieht Card durch reader    --> swipeCard() bei CardReader
-    und wird zu pineingabe aufgefordert --> enterPin() bei CardReader
-     */
     private IDCard idCard;
 
 

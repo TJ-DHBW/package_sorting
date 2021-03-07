@@ -121,7 +121,7 @@ public class SortingFacility implements ISortingFacility {
 
     @Subscribe
     public void receive(SortStorageLanesEvent event) {
-        // empty Storage Lanes into sorting lanes
+        // empty StorageLanes into sorting lanes
         for (StorageLane storageLane : storageLanes) {
             Package next;
             while ((next = storageLane.pull()) != null) {

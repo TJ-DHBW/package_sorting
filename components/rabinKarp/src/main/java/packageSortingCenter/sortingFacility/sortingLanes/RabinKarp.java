@@ -2,7 +2,7 @@ package packageSortingCenter.sortingFacility.sortingLanes;
 
 public class RabinKarp {
     private static final RabinKarp instance = new RabinKarp();
-    public Port port;
+    public Port port = new Port();
 
     public static RabinKarp getInstance(){
         return instance;

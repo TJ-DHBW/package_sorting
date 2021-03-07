@@ -28,8 +28,8 @@ public class AutonomousVehicle {
                                 unloadingZone.getCurrentLKWUnloading().getTrailer().getPallets()[sideCounter][lengthCounter];
                     }
                 }
+                unloadingZone.getCurrentLKWUnloading().getTrailer().setPallets(new Pallet[2][5]);
             }
-            unloadingZone.getCurrentLKWUnloading().getTrailer().setPallets(new Pallet[2][5]);
         }
         parkingSpot.setParkedVehicle(this);
         System.out.println("Vehicle "+id+" has returned to parking spot");

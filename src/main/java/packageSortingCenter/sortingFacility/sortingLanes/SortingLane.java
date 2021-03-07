@@ -12,6 +12,7 @@ public abstract class SortingLane {
 
     public SortingLane() {
         this.scanner = new Scanner();
+        this.packages = new ArrayList<>();
     }
 
 

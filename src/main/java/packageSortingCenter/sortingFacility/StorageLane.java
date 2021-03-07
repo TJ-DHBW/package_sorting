@@ -5,12 +5,11 @@ import container.Package;
 import java.util.ArrayList;
 
 public class StorageLane {
+    private static int nextId = 0;
     private final Package[] lane;
-
     private final Sensor sensor;
     private final ArrayList<IStorageLaneListener> listenerList;
     private final int id;
-    private static int nextId = 0;
 
     public StorageLane(int size) {
         this.id = nextId++;
@@ -20,6 +19,7 @@ public class StorageLane {
 
         addListener(sensor);
     }
+
     public boolean put(Package packageToAdd) {
         for (int i = 0; i < lane.length; i++) {
             if (lane[i] == null) {
@@ -35,9 +35,9 @@ public class StorageLane {
         return false;
     }
 
-    public Package pull(){
-        for(int i = 0; i < lane.length; i++){
-            if(lane[i] != null){
+    public Package pull() {
+        for (int i = 0; i < lane.length; i++) {
+            if (lane[i] != null) {
                 Package tmp = lane[i];
                 lane[i] = null;
                 return tmp;
@@ -55,8 +55,8 @@ public class StorageLane {
         listenerList.remove(listener);
     }
 
-    private void notifyListeners(){
-        for(IStorageLaneListener listener : listenerList){
+    private void notifyListeners() {
+        for (IStorageLaneListener listener : listenerList) {
             listener.storageLaneFilled(id);
         }
     }

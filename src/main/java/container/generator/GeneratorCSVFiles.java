@@ -18,7 +18,7 @@ public class GeneratorCSVFiles {
         LKWGenerator lkwGenerator = new LKWGenerator();
         ArrayList<Package> packages = packageGenerator.packageGeneration();
 
-        for(int i = 0; i< Configuration.instance.packageIndexToHide.length; i++){
+        for (int i = 0; i < Configuration.instance.packageIndexToHide.length; i++) {
             char[][][] content = packageGenerator.hideExplosive(packages.get(Configuration.instance.packageIndexToHide[i]).getContent());
             packages.get(Configuration.instance.packageIndexToHide[i]).setContent(content);
         }

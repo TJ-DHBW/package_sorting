@@ -1,33 +1,23 @@
 package packageSortingCenter.sortingFacility.sortingLanes;
 
 public class RabinKarp {
+    // d is the number of characters in the input alphabet
+    public final static int d = 256;
     private static final RabinKarp instance = new RabinKarp();
     public Port port = new Port();
 
-    public static RabinKarp getInstance(){
+    public static RabinKarp getInstance() {
         return instance;
-    }
-
-    public class Port implements ISearchAlgorithm {
-
-        @Override
-        public int search(char[] input, char[] pattern) {
-            return innerSearch(input, pattern, 101);
-        }
     }
 
 
     //Modified from: https://www.geeksforgeeks.org/java-program-for-rabin-karp-algorithm-for-pattern-searching/
 
-    // d is the number of characters in the input alphabet
-    public final static int d = 256;
-
     /* pat -> pattern
         txt -> text
         q -> A prime number
     */
-    static int innerSearch(char[] txt, char[] pat, int q)
-    {
+    static int innerSearch(char[] txt, char[] pat, int q) {
         int M = pat.length;
         int N = txt.length;
         int i, j;
@@ -62,7 +52,7 @@ public class RabinKarp {
                 // if p == t and pat[0...M-1] = txt[i, i+1, ...i+M-1]
                 if (j == M)
                     return i;
-                    //System.out.println("Pattern found at index " + i);
+                //System.out.println("Pattern found at index " + i);
             }
 
             // Calculate hash value for next window of text: Remove
@@ -80,11 +70,18 @@ public class RabinKarp {
     }
 
     /* Driver program to test above function */
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         String txt = "GEEKS FOR GEEKS";
         String pat = "GEEK";
         int q = 101; // A prime number
         innerSearch(txt.toCharArray(), pat.toCharArray(), q);
+    }
+
+    public class Port implements ISearchAlgorithm {
+
+        @Override
+        public int search(char[] input, char[] pattern) {
+            return innerSearch(input, pattern, 101);
+        }
     }
 }

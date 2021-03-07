@@ -10,15 +10,16 @@ import java.util.HashSet;
 
 public class LKWGenerator {
     private HashSet<String> allGeneratedIds = new HashSet<>();
-    public ArrayList<LKW> lkwGeneration(ArrayList<Pallet> pallets){
+
+    public ArrayList<LKW> lkwGeneration(ArrayList<Pallet> pallets) {
         ArrayList<LKW> lkws = new ArrayList<>();
         int palletCounter = 0;
-        for(int lkwCounter = 0; lkwCounter<Configuration.instance.numberOfLkw; lkwCounter++){
+        for (int lkwCounter = 0; lkwCounter < Configuration.instance.numberOfLkw; lkwCounter++) {
             LKW lkw = new LKW();
             lkw.setId(idRandom());
             LKWTrailer lkwTrailer = new LKWTrailer();
-            for (int palletSideCounter = 0; palletSideCounter<2; palletSideCounter++){
-                for(int palletLengthCounter = 0; palletLengthCounter<5; palletLengthCounter++) {
+            for (int palletSideCounter = 0; palletSideCounter < 2; palletSideCounter++) {
+                for (int palletLengthCounter = 0; palletLengthCounter < 5; palletLengthCounter++) {
                     lkwTrailer.getPallets()[palletSideCounter][palletLengthCounter] = pallets.get(palletCounter);
                     palletCounter++;
                 }
@@ -29,21 +30,20 @@ public class LKWGenerator {
         return lkws;
     }
 
-    public String idRandom(){
+    public String idRandom() {
         String id;
-        do{
+        do {
             StringBuilder stringBuilder = new StringBuilder();
-            for(int idLength = 0; idLength<4; idLength++){
+            for (int idLength = 0; idLength < 4; idLength++) {
                 int randomChar = Configuration.instance.randomGenerator.nextInt(36);
-                if(randomChar <10){
+                if (randomChar < 10) {
                     stringBuilder.append(randomChar);
-                }
-                else{
-                    stringBuilder.append((char) (randomChar+87));
+                } else {
+                    stringBuilder.append((char) (randomChar + 87));
                 }
             }
             id = stringBuilder.toString();
-        }while (allGeneratedIds.contains(id));
+        } while (allGeneratedIds.contains(id));
         allGeneratedIds.add(id);
         return id;
     }

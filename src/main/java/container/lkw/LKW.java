@@ -14,12 +14,12 @@ public class LKW {
         return id;
     }
 
-    public LKWTrailer getTrailer() {
-        return trailer;
-    }
-
     public void setId(String id) {
         this.id = id;
+    }
+
+    public LKWTrailer getTrailer() {
+        return trailer;
     }
 
     public void setTrailer(LKWTrailer trailer) {

@@ -11,7 +11,7 @@ public class Sensor implements IStorageLaneListener {
         centralControlUnit.notifyEventbus(new StorageLaneFullEvent(id));
     }
 
-    public void connectToCentralControlUnit(CentralControlUnit centralControlUnit){
+    public void connectToCentralControlUnit(CentralControlUnit centralControlUnit) {
         this.centralControlUnit = centralControlUnit;
     }
 }

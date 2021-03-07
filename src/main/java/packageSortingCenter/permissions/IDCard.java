@@ -14,17 +14,17 @@ public class IDCard {
         this.state = new IDCardActive();
     }
 
-    public static IDCard issueIDCardForEmployee(Employee employee){
+    public static IDCard issueIDCardForEmployee(Employee employee) {
         // Create Pin
         StringBuilder pinBuilder = new StringBuilder();
-        for(int i = 0; i < 4; i++){
+        for (int i = 0; i < 4; i++) {
             pinBuilder.append(Configuration.instance.randomGenerator.nextInt(10));
         }
         String pin = pinBuilder.toString();
 
         // Create SuperPin
         StringBuilder superPinBuilder = new StringBuilder();
-        for(int i = 0; i < 6; i++){
+        for (int i = 0; i < 6; i++) {
             superPinBuilder.append(Configuration.instance.randomGenerator.nextInt(10));
         }
         String superPin = superPinBuilder.toString();
@@ -44,11 +44,11 @@ public class IDCard {
         return new IDCard(magnetStripe);
     }
 
-    public boolean checkInput(String input){
+    public boolean checkInput(String input) {
         return state.checkInput(this, input);
     }
 
-    public boolean shouldBeAccepted(){
+    public boolean shouldBeAccepted() {
         return state.shouldBeAccepted();
     }
 

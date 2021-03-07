@@ -7,7 +7,7 @@ public class ParkingZone {
     public ParkingZone(PackageSortingCenter packageSortingCenter) {
         this.packageSortingCenter = packageSortingCenter;
         parkingSpots = new ParkingSpot[5];
-        for(int i = 0; i<5; i++){
+        for (int i = 0; i < 5; i++) {
             parkingSpots[i] = new ParkingSpot();
             AutonomousVehicle autonomousVehicle = new AutonomousVehicle(packageSortingCenter, parkingSpots[i]);
             parkingSpots[i].setParkedVehicle(autonomousVehicle);

@@ -19,12 +19,12 @@ public class Pallet {
         return id;
     }
 
-    public Box[][] getBoxes() {
-        return boxes;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Box[][] getBoxes() {
+        return boxes;
     }
 
     public void setBoxes(Box[][] boxes) {

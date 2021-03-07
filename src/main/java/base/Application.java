@@ -22,19 +22,19 @@ public class Application {
         System.out.println("Done");
     }
 
-    public void initPackageSortingCenter(){
+    public void initPackageSortingCenter() {
         this.packageSortingCenter = new PackageSortingCenter();
         this.supervisor = new Supervisor(0, "Hans Peter", false);
     }
 
-    public void runSimulation(){
+    public void runSimulation() {
         //Login
         packageSortingCenter.getTerminal().swipeCard(supervisor.getIdCard());
         packageSortingCenter.getTerminal().enterPinOrSuperPin(supervisor.getPin());
 
         //Process
         packageSortingCenter.getTerminal().getTouchPad().pressInitButton();
-        for(LKW lkw: packageSortingCenter.getSortingFacility().getLkwWaitingArea().getLkws()) {
+        for (LKW lkw : packageSortingCenter.getSortingFacility().getLkwWaitingArea().getLkws()) {
             packageSortingCenter.getTerminal().getTouchPad().pressNextButton();
         }
     }

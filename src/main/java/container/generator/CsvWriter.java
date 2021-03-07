@@ -28,15 +28,16 @@ public class CsvWriter {
         }
         writer.close();
     }
+
     public void printGeneratedBoxes(ArrayList<Box> boxes) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(Configuration.instance.exportDirectory + "base_box.csv"));
         for (int boxCounter = 0; boxCounter < boxes.size(); boxCounter++) {
             writer.write(boxes.get(boxCounter).getId());
-            for(int level = 0; level<5; level++){
-                for(int side = 0; side<2; side++){
-                    for(int width = 0; width<4; width++){
-                        if(!(boxes.get(boxCounter).getPackages()[level][side][width] == null)) {
-                            writer.write(","+boxes.get(boxCounter).getPackages()[level][side][width].getId());
+            for (int level = 0; level < 5; level++) {
+                for (int side = 0; side < 2; side++) {
+                    for (int width = 0; width < 4; width++) {
+                        if (!(boxes.get(boxCounter).getPackages()[level][side][width] == null)) {
+                            writer.write("," + boxes.get(boxCounter).getPackages()[level][side][width].getId());
                         }
                     }
                 }
@@ -45,12 +46,13 @@ public class CsvWriter {
         }
         writer.close();
     }
+
     public void printGeneratedPallets(ArrayList<Pallet> pallets) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(Configuration.instance.exportDirectory + "base_pallet.csv"));
         for (int palletCounter = 0; palletCounter < pallets.size(); palletCounter++) {
-            for(int position = 0; position<4; position++){
-                for(int stackNumber = 0; stackNumber<3; stackNumber++){
-                    if(pallets.get(palletCounter).getBoxes()[position][stackNumber]!= null) {
+            for (int position = 0; position < 4; position++) {
+                for (int stackNumber = 0; stackNumber < 3; stackNumber++) {
+                    if (pallets.get(palletCounter).getBoxes()[position][stackNumber] != null) {
                         writer.write(pallets.get(palletCounter).getId() + ","
                                 + position + ","
                                 + stackNumber + ","
@@ -62,20 +64,20 @@ public class CsvWriter {
         }
         writer.close();
     }
+
     public void printGeneratedLKWs(ArrayList<LKW> lkws) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(Configuration.instance.exportDirectory + "base_lkw.csv"));
         for (int lkwCounter = 0; lkwCounter < lkws.size(); lkwCounter++) {
-            for (int palletSideCounter = 0; palletSideCounter<2; palletSideCounter++){
-                for(int palletLengthCounter = 0; palletLengthCounter<5; palletLengthCounter++) {
-                writer.write(lkws.get(lkwCounter).getId());
-                if(palletSideCounter == 0){
-                    writer.write(",left");
-                }
-                else {
-                    writer.write(",right");
-                }
-                    writer.write(","+palletLengthCounter);
-                    writer.write(","+lkws.get(lkwCounter).getTrailer().getPallets()[palletSideCounter][palletLengthCounter].getId());
+            for (int palletSideCounter = 0; palletSideCounter < 2; palletSideCounter++) {
+                for (int palletLengthCounter = 0; palletLengthCounter < 5; palletLengthCounter++) {
+                    writer.write(lkws.get(lkwCounter).getId());
+                    if (palletSideCounter == 0) {
+                        writer.write(",left");
+                    } else {
+                        writer.write(",right");
+                    }
+                    writer.write("," + palletLengthCounter);
+                    writer.write("," + lkws.get(lkwCounter).getTrailer().getPallets()[palletSideCounter][palletLengthCounter].getId());
                     writer.write("\n");
                 }
             }

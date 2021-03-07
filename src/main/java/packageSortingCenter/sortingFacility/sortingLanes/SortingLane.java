@@ -6,9 +6,9 @@ import container.PackageType;
 import java.util.ArrayList;
 
 public abstract class SortingLane {
-    private SortingLane successor;
     protected ArrayList<Package> packages;
     protected Scanner scanner;
+    private SortingLane successor;
 
     public SortingLane() {
         this.scanner = new Scanner();
@@ -16,15 +16,15 @@ public abstract class SortingLane {
     }
 
 
-    public void sort(Package packageToSort){
-        if(getSuccessor() != null){
+    public void sort(Package packageToSort) {
+        if (getSuccessor() != null) {
             getSuccessor().sort(packageToSort);
-        }else{
+        } else {
             System.out.println("There is no lane responsible for the package: " + packageToSort);
         }
     }
 
-    protected boolean canHandlePackage(Package packageToTest, PackageType type){
+    protected boolean canHandlePackage(Package packageToTest, PackageType type) {
         return packageToTest == null || packageToTest.getType() == type;
     }
 

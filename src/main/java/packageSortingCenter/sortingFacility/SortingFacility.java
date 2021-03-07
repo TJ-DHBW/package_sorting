@@ -2,8 +2,8 @@ package packageSortingCenter.sortingFacility;
 
 import com.google.common.eventbus.Subscribe;
 import container.Box;
-import container.Pallet;
 import container.Package;
+import container.Pallet;
 import packageSortingCenter.LkwWaitingArea;
 import packageSortingCenter.PackageSortingCenter;
 import packageSortingCenter.centralControlUnit.events.general.SortStorageLanesEvent;
@@ -15,16 +15,15 @@ import packageSortingCenter.sortingFacility.sortingLanes.ValueSortingLane;
 
 import java.util.HashMap;
 
-public class SortingFacility implements ISortingFacility{
+public class SortingFacility implements ISortingFacility {
     private final HashMap<String, ISortingFacilityCommand> commands;
-    private LkwWaitingArea lkwWaitingArea = new LkwWaitingArea();
     private final Robot prestoredRobot;
     private final StoragePlace<Box> boxStoragePlace;
     private final StoragePlace<Pallet> palletStoragePlace;
     private final StorageLane[] storageLanes;
     private final PackageSortingCenter packageSortingCenter;
     private final SortingLane[] sortingLanes;
-
+    private LkwWaitingArea lkwWaitingArea = new LkwWaitingArea();
     private boolean isLocked;
 
     public SortingFacility(PackageSortingCenter packageSortingCenter) {
@@ -53,42 +52,42 @@ public class SortingFacility implements ISortingFacility{
 
     @Override
     public void init() {
-        if(!isLocked && !executeIfFound("1")) throw new IllegalStateException("There should be a command to execute!");
+        if (!isLocked && !executeIfFound("1")) throw new IllegalStateException("There should be a command to execute!");
     }
 
     @Override
     public void next() {
-        if(!isLocked &&!executeIfFound("2")) throw new IllegalStateException("There should be a command to execute!");
+        if (!isLocked && !executeIfFound("2")) throw new IllegalStateException("There should be a command to execute!");
     }
 
     @Override
     public void shutdown() {
-        if(!isLocked && !executeIfFound("3")) throw new IllegalStateException("There should be a command to execute!");
+        if (!isLocked && !executeIfFound("3")) throw new IllegalStateException("There should be a command to execute!");
     }
 
     @Override
     public void lock() {
-        if(!executeIfFound("4")) throw new IllegalStateException("There should be a command to execute!");
+        if (!executeIfFound("4")) throw new IllegalStateException("There should be a command to execute!");
     }
 
     @Override
     public void unlock() {
-        if(!executeIfFound("5")) throw new IllegalStateException("There should be a command to execute!");
+        if (!executeIfFound("5")) throw new IllegalStateException("There should be a command to execute!");
     }
 
     @Override
     public void showStatistics() {
-        if(!isLocked && !executeIfFound("6")) throw new IllegalStateException("There should be a command to execute!");
+        if (!isLocked && !executeIfFound("6")) throw new IllegalStateException("There should be a command to execute!");
     }
 
     @Override
     public void changeSearchAlgorithm(SearchAlgorithm algorithm) {
-        switch(algorithm){
+        switch (algorithm) {
             case BM:
-                if(!executeIfFound("7.1")) throw new IllegalStateException("There should be a command to execute!");
+                if (!executeIfFound("7.1")) throw new IllegalStateException("There should be a command to execute!");
                 return;
             case RK:
-                if(!executeIfFound("7.2")) throw new IllegalStateException("There should be a command to execute!");
+                if (!executeIfFound("7.2")) throw new IllegalStateException("There should be a command to execute!");
                 return;
             default:
                 throw new UnsupportedOperationException("This is not implemented yet.");
@@ -96,7 +95,7 @@ public class SortingFacility implements ISortingFacility{
     }
 
 
-    private HashMap<String, ISortingFacilityCommand> createCommands(){
+    private HashMap<String, ISortingFacilityCommand> createCommands() {
         HashMap<String, ISortingFacilityCommand> ret = new HashMap<>();
 
         // [i]init, [ii]next, [iii]shutdown, [iv]lock, [v]unlock, [vi]show statistics, [vii]  change  search  algorithm
@@ -112,8 +111,8 @@ public class SortingFacility implements ISortingFacility{
         return ret;
     }
 
-    private boolean executeIfFound(String commandIdentifier){
-        if(commands.containsKey(commandIdentifier)){
+    private boolean executeIfFound(String commandIdentifier) {
+        if (commands.containsKey(commandIdentifier)) {
             commands.get(commandIdentifier).execute();
             return true;
         }
@@ -121,18 +120,18 @@ public class SortingFacility implements ISortingFacility{
     }
 
     @Subscribe
-    public void receive(SortStorageLanesEvent event){
+    public void receive(SortStorageLanesEvent event) {
         // empty Storage Lanes into sorting lanes
-        for(StorageLane storageLane : storageLanes){
+        for (StorageLane storageLane : storageLanes) {
             Package next;
-            while((next = storageLane.pull()) != null){
+            while ((next = storageLane.pull()) != null) {
                 sortingLanes[0].sort(next);
             }
         }
     }
 
 
-    public SortingFacilityProxy getProxy(String employeeType){
+    public SortingFacilityProxy getProxy(String employeeType) {
         return new SortingFacilityProxy(this, employeeType);
     }
 

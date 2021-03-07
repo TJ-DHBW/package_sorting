@@ -11,9 +11,9 @@ public class IDCardActive implements IIDCardState {
     }
 
     private void handleWrongInput(IDCard idCard) {
-        if(incorrectAttempts >= 2){
+        if (incorrectAttempts >= 2) {
             idCard.setState(new IDCardLocked());
-        }else{
+        } else {
             incorrectAttempts++;
         }
     }
@@ -29,10 +29,10 @@ public class IDCardActive implements IIDCardState {
         String[] fields = clearMagnetsripe.split(";");
         String decryptedPin = fields[3];
 
-        if(input.equals(decryptedPin)){
+        if (input.equals(decryptedPin)) {
             handleRightInput();
             return true;
-        }else{
+        } else {
             handleWrongInput(idCard);
             return false;
         }

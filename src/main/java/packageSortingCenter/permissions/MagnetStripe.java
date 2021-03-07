@@ -17,10 +17,10 @@ public class MagnetStripe {
         return content;
     }
 
-    public char[] getActualContent(){
-        for(int i = content.length-1; i >= 0; i--){
-            if(content[i] != 0){
-                return Arrays.copyOfRange(content, 0, i+1);
+    public char[] getActualContent() {
+        for (int i = content.length - 1; i >= 0; i--) {
+            if (content[i] != 0) {
+                return Arrays.copyOfRange(content, 0, i + 1);
             }
         }
         return new char[0];

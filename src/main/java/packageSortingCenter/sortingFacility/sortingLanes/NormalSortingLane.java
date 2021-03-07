@@ -1,8 +1,8 @@
 package packageSortingCenter.sortingFacility.sortingLanes;
 
 import container.Package;
-import packageSortingCenter.Report.ReportInformationCollector;
 import container.PackageType;
+import packageSortingCenter.Report.ReportInformationCollector;
 
 public class NormalSortingLane extends SortingLane {
 
@@ -12,15 +12,15 @@ public class NormalSortingLane extends SortingLane {
 
     @Override
     public void sort(Package packageToSort) {
-        if(canHandlePackage(packageToSort, PackageType.NORMAL)){
-            if(scanner.scan(packageToSort)){
+        if (canHandlePackage(packageToSort, PackageType.NORMAL)) {
+            if (scanner.scan(packageToSort)) {
                 System.out.println("Package with explosives detected!\nPackage: " + packageToSort);
                 ReportInformationCollector.getInstance().getExplosivePackages().add(packageToSort);
                 return;
             }
             packages.add(packageToSort);
-            ReportInformationCollector.getInstance().setNormalPackageCounter(ReportInformationCollector.getInstance().getNormalPackageCounter()+1);
-        }else{
+            ReportInformationCollector.getInstance().setNormalPackageCounter(ReportInformationCollector.getInstance().getNormalPackageCounter() + 1);
+        } else {
             super.sort(packageToSort);
         }
     }

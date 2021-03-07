@@ -4,7 +4,6 @@ import packageSortingCenter.centralControlUnit.CentralControlUnit;
 import packageSortingCenter.sortingFacility.SortingFacility;
 import packageSortingCenter.sortingFacility.StorageLane;
 import packageSortingCenter.terminal.Terminal;
-import packageSortingCenter.unloadingZone.Sensor;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +19,7 @@ public class PackageSortingCenter {
     private Integer currentLKW = 0;
 
     public PackageSortingCenter() {
-        this.unloadingZones = new UnloadingZone[] {new UnloadingZone(),
+        this.unloadingZones = new UnloadingZone[]{new UnloadingZone(),
                 new UnloadingZone(),
                 new UnloadingZone(),
                 new UnloadingZone(),
@@ -36,24 +35,24 @@ public class PackageSortingCenter {
         connectToCentralControlUnit();
     }
 
-    private void connectToCentralControlUnit(){
-        for(ParkingSpot parkingSpot : parkingZone.getParkingSpots()) {
+    private void connectToCentralControlUnit() {
+        for (ParkingSpot parkingSpot : parkingZone.getParkingSpots()) {
             centralControlUnit.subscribe(parkingSpot.getParkedVehicle());
         }
         centralControlUnit.subscribe(sortingFacility.getPrestoredRobot());
         centralControlUnit.subscribe(sortingFacility);
 
-        for(StorageLane lane : sortingFacility.getStorageLanes()){
+        for (StorageLane lane : sortingFacility.getStorageLanes()) {
             lane.getSensor().connectToCentralControlUnit(centralControlUnit);
         }
 
-        for(UnloadingZone unloadingZone : unloadingZones){
+        for (UnloadingZone unloadingZone : unloadingZones) {
             unloadingZone.getSensor().addListener(centralControlUnit);
         }
     }
 
     //region Getter and Setter
-    public List<UnloadingZone> getUnloadingZonesAsList(){
+    public List<UnloadingZone> getUnloadingZonesAsList() {
         return Arrays.asList(unloadingZones);
     }
 

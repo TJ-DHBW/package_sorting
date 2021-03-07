@@ -9,9 +9,9 @@ public class EventReciever {
         this.events = new ArrayList<>();
     }
 
-    public boolean receivedEventOfClass(Class eventClass){
-        for(Object o : events){
-            if(o.getClass() == eventClass){
+    public boolean receivedEventOfClass(Class eventClass) {
+        for (Object o : events) {
+            if (o.getClass() == eventClass) {
                 return true;
             }
         }
@@ -20,7 +20,7 @@ public class EventReciever {
     }
 
     @Subscribe
-    public void receive(Object o){
+    public void receive(Object o) {
         events.add(o);
     }
 }

@@ -24,36 +24,36 @@ public class Package {
         return id;
     }
 
-    public char[][][] getContent() {
-        return content;
-    }
-
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public PackageType getType() {
-        return type;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-
     public void setId(String id) {
         this.id = id;
+    }
+
+    public char[][][] getContent() {
+        return content;
     }
 
     public void setContent(char[][][] content) {
         this.content = content;
     }
 
+    public String getZipCode() {
+        return zipCode;
+    }
+
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 
+    public PackageType getType() {
+        return type;
+    }
+
     public void setType(PackageType type) {
         this.type = type;
+    }
+
+    public float getWeight() {
+        return weight;
     }
 
     public void setWeight(float weight) {

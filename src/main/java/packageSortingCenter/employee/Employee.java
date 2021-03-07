@@ -17,11 +17,11 @@ public abstract class Employee {
     }
 
 
-    public void rememberPin(String pin){
+    public void rememberPin(String pin) {
         this.pin = pin;
     }
 
-    public void rememberSuperPin(String superPin){
+    public void rememberSuperPin(String superPin) {
         this.superPin = superPin;
     }
 

@@ -14,15 +14,15 @@ public class PalletGenerator {
         pallets = new ArrayList<>();
     }
 
-    public ArrayList<Pallet> palletGeneration(ArrayList<Box>boxes){
+    public ArrayList<Pallet> palletGeneration(ArrayList<Box> boxes) {
         int boxCounter = 0;
-        for (int i = 0; i< Configuration.instance.numberOfPallets; i++){
+        for (int i = 0; i < Configuration.instance.numberOfPallets; i++) {
             Pallet pallet = new Pallet();
             pallet.setId(currentIDGiven);
             currentIDGiven++;
-            for(int position = 0; position<4; position++){
-                for(int stackNumber = 0; stackNumber<3; stackNumber++){
-                    if(boxes.get(boxCounter) != null) {
+            for (int position = 0; position < 4; position++) {
+                for (int stackNumber = 0; stackNumber < 3; stackNumber++) {
+                    if (boxes.get(boxCounter) != null) {
                         pallet.getBoxes()[position][stackNumber] = boxes.get(boxCounter);
                         boxCounter++;
                     }

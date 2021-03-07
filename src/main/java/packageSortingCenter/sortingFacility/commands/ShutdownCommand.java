@@ -13,7 +13,7 @@ public class ShutdownCommand implements ISortingFacilityCommand {
 
     @Override
     public void execute() {
-        for(UnloadingZone unloadingZone : sortingFacility.getPackageSortingCenter().getUnloadingZones()){
+        for (UnloadingZone unloadingZone : sortingFacility.getPackageSortingCenter().getUnloadingZones()) {
             unloadingZone.getSensor().setActivated(false);
         }
         Scanner.shutdownScanner();

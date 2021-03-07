@@ -12,7 +12,7 @@ import java.util.Base64;
 public class DES implements IEncryptionStrategy {
     private SecretKeySpec secretKey;
 
-    public DES(String secret){
+    public DES(String secret) {
         setKey(secret);
     }
 

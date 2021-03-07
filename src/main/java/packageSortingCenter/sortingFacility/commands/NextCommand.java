@@ -17,8 +17,8 @@ public class NextCommand implements ISortingFacilityCommand {
     @Override
     public void execute() {
         PackageSortingCenter packageSortingCenter = sortingFacility.getPackageSortingCenter();
-        for(UnloadingZone unloadingZone : packageSortingCenter.getUnloadingZones()){
-            if(unloadingZone.getCurrentLKWUnloading() != null){
+        for (UnloadingZone unloadingZone : packageSortingCenter.getUnloadingZones()) {
+            if (unloadingZone.getCurrentLKWUnloading() != null) {
                 unloadingZone.setCurrentLKWUnloading(null);
             }
         }
@@ -29,6 +29,6 @@ public class NextCommand implements ISortingFacilityCommand {
         packageSortingCenter.getSortingFacility().getLkwWaitingArea().getLkws()[packageSortingCenter.getCurrentLKW()] = null;
         packageSortingCenter.setCurrentLKW(packageSortingCenter.getCurrentLKW() + 1);
 
-        ReportInformationCollector.getInstance().setNumberOfHandledLkw(ReportInformationCollector.getInstance().getNumberOfHandledLkw()+1);
+        ReportInformationCollector.getInstance().setNumberOfHandledLkw(ReportInformationCollector.getInstance().getNumberOfHandledLkw() + 1);
     }
 }

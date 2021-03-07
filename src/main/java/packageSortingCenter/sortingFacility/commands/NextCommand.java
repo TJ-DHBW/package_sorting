@@ -27,6 +27,7 @@ public class NextCommand implements ISortingFacilityCommand {
         packageSortingCenter.getUnloadingZones()[randomUnloadingZone]
                 .setCurrentLKWUnloading(packageSortingCenter.getSortingFacility().getLkwWaitingArea().getLkws()[packageSortingCenter.getCurrentLKW()]);
         packageSortingCenter.getSortingFacility().getLkwWaitingArea().getLkws()[packageSortingCenter.getCurrentLKW()] = null;
+        packageSortingCenter.setCurrentLKW(packageSortingCenter.getCurrentLKW() + 1);
 
         ReportInformationCollector.getInstance().setNumberOfHandledLkw(ReportInformationCollector.getInstance().getNumberOfHandledLkw()+1);
     }

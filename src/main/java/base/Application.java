@@ -17,6 +17,8 @@ public class Application {
 
         application.runSimulation();
 
+        application.packageSortingCenter.getTerminal().getTouchPad().pressStatisticsButton();
+
         System.out.println("Done");
     }
 

@@ -11,13 +11,11 @@ public enum Configuration {
     // i/o
     public final String fileSeparator = System.getProperty("file.separator");
     public final String userDirectory = System.getProperty("user.dir");
-    public final String lineSeparator = System.getProperty("line.separator");
-    public final String dataDirectory = userDirectory + fileSeparator + "data" + fileSeparator;
     public final String exportDirectory = userDirectory + fileSeparator + "export" + fileSeparator;
 
     //implementation
     public Integer[] packageIndexToHide = {3,57,100,200};
-    public Integer numberOfLkw = 1;
+    public Integer numberOfLkw = 5;
     public Integer numberOfPallets = numberOfLkw * 10;
     public Integer numberOfBoxes = numberOfPallets * 12;
     public Integer numberOfPackages = numberOfBoxes * 40;

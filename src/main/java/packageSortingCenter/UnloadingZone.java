@@ -21,7 +21,9 @@ public class UnloadingZone {
 
     public void setCurrentLKWUnloading(LKW currentLKWUnloading) {
         this.currentLKWUnloading = currentLKWUnloading;
-        sensor.lkwDetected();
+        if(currentLKWUnloading != null){
+            sensor.lkwDetected();
+        }
     }
 
     public int getId() {

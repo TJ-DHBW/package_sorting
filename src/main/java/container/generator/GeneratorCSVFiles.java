@@ -1,5 +1,6 @@
 package container.generator;
 
+import base.Configuration;
 import container.Box;
 import container.Package;
 import container.Pallet;
@@ -11,16 +12,15 @@ import java.util.ArrayList;
 public class GeneratorCSVFiles {
 
     public static void main(String[] args) throws IOException {
-        Integer[] packageIndexToHide = {3,57,100,200};
         PackageGenerator packageGenerator = new PackageGenerator();
         BoxGenerator boxGenerator = new BoxGenerator();
         PalletGenerator palletGenerator = new PalletGenerator();
         LKWGenerator lkwGenerator = new LKWGenerator();
         ArrayList<Package> packages = packageGenerator.packageGeneration();
 
-        for(int i = 0; i<packageIndexToHide.length; i++){
-            char[][][] content = packageGenerator.hideExplosive(packages.get(packageIndexToHide[i]).getContent());
-            packages.get(packageIndexToHide[i]).setContent(content);
+        for(int i = 0; i< Configuration.instance.packageIndexToHide.length; i++){
+            char[][][] content = packageGenerator.hideExplosive(packages.get(Configuration.instance.packageIndexToHide[i]).getContent());
+            packages.get(Configuration.instance.packageIndexToHide[i]).setContent(content);
         }
 
         ArrayList<Box> boxes = boxGenerator.boxGeneration(packages);

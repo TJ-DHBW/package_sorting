@@ -1,5 +1,6 @@
 package packageSortingCenter.employee;
 
+//Every instance of Supervisor could replace Employee -> liskov substitution principle
 public class Supervisor extends Employee {
     private boolean isSenior;
 

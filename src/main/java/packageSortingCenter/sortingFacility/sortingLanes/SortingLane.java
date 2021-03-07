@@ -5,6 +5,7 @@ import container.PackageType;
 
 import java.util.ArrayList;
 
+//SortingLane does not depend on its child classes -> dependency inversion principle
 public abstract class SortingLane {
     private SortingLane successor;
     protected ArrayList<Package> packages;

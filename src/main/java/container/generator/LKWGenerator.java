@@ -11,6 +11,7 @@ import java.util.HashSet;
 public class LKWGenerator {
     private HashSet<String> allGeneratedIds = new HashSet<>();
     public ArrayList<LKW> lkwGeneration(ArrayList<Pallet> pallets){
+        //LKWGenerator only generates LKWs -> single responsibility principle
         ArrayList<LKW> lkws = new ArrayList<>();
         int palletCounter = 0;
         for(int lkwCounter = 0; lkwCounter<Configuration.instance.numberOfLkw; lkwCounter++){

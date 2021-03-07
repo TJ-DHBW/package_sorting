@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class PalletGenerator {
     int currentIDGiven = 1;
     ArrayList<Pallet> pallets;
-
+    //PalletGenerator only generates Pallets -> single responsibility principle
     public PalletGenerator() {
         pallets = new ArrayList<>();
     }

@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Base64;
 
 //Taken from userid#4701
-
+//Different Classes for DES and AES -> Single-Responsibility
 public class DES implements IEncryptionStrategy {
     private SecretKeySpec secretKey;
 

@@ -4,6 +4,7 @@ import container.Package;
 import packageSortingCenter.Report.ReportInformationCollector;
 import container.PackageType;
 
+//Every instance of ValueSortingLane could replace SortingLane -> liskov substitution principle
 public class ValueSortingLane extends SortingLane {
 
     public ValueSortingLane() {

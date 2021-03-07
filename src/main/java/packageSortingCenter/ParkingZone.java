@@ -23,6 +23,5 @@ public class ParkingZone {
         this.parkingSpots = parkingSpots;
     }
 
-
     //endregion
 }

@@ -2,6 +2,7 @@ package packageSortingCenter.permissions.idCardState;
 
 import packageSortingCenter.permissions.IDCard;
 
+//additional IDCardStates could be easily added -> open closed principle
 public interface IIDCardState {
     /**
      * checks if a given input is valid for a cards state

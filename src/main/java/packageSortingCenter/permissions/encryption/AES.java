@@ -10,6 +10,7 @@ import java.util.Base64;
 
 //From: https://howtodoinjava.com/java/java-security/java-aes-encryption-example/
 
+//Different Classes for DES and AES -> Single-Responsibility
 public class AES implements IEncryptionStrategy {
     private static SecretKeySpec secretKey;
 

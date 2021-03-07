@@ -1,5 +1,6 @@
 package packageSortingCenter.employee;
 
+//Every instance of Administrator could replace Employee -> liskov substitution principle
 public class Administrator extends Employee {
     private AdministratorProfile profile;
 

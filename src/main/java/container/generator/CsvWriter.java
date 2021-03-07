@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CsvWriter {
-
+    //the csv writer only prints cvs-files -> single responsibility principle
     public void printGeneratedPackages(ArrayList<Package> packages) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(Configuration.instance.exportDirectory + "base_package.csv"));
         for (int i = 0; i < packages.size(); i++) {

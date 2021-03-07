@@ -2,6 +2,7 @@ package packageSortingCenter.sortingFacility;
 
 import java.util.ArrayList;
 
+
 public class StoragePlace<T> {
     private final ArrayList<T> storage;
 

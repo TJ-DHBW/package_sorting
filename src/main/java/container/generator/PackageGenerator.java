@@ -16,6 +16,7 @@ public class PackageGenerator {
     private HashSet<String> allGeneratedIds = new HashSet<>();
     private String explosive = "exp!os:ve";
 
+    //PackageGenerator only generates Packages -> single responsibility principle
     public PackageGenerator() {
     }
 

@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+//Report only creates an .txt file for tracking -> single responsibility principle
+//with builder -> open closed principle
 public class Report {
     private final Date date;
     private final int numberOfHandledLKW;

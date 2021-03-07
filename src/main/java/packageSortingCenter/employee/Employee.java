@@ -2,6 +2,7 @@ package packageSortingCenter.employee;
 
 import packageSortingCenter.permissions.IDCard;
 
+//Employee does not depend on its child classes -> dependency inversion principle
 public abstract class Employee {
     private int id;
     private String name;

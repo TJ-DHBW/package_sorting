@@ -45,9 +45,4 @@ public class AutonomousVehicle {
             unloadLKW(lkwArrivedEvent.getZoneId());
         }
     }
-
-    //region Getter and Setter
-
-    //endregion
-
 }

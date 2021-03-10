@@ -11,8 +11,6 @@ public class Terminal {
     private final SortingFacility sortingFacility;
     private final TouchPad touchPad;
 
-    private SortingFacilityProxy currentProxy;
-
 
     /*
     How to use this:

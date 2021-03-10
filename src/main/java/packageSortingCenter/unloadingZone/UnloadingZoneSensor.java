@@ -2,12 +2,12 @@ package packageSortingCenter.unloadingZone;
 
 import java.util.ArrayList;
 
-public class Sensor {
+public class UnloadingZoneSensor {
     private boolean activated = true;
     private ArrayList<ISensorUnloadingZoneListener> listenerList;
     private int zoneId;
 
-    public Sensor(int zoneId) {
+    public UnloadingZoneSensor(int zoneId) {
         this.zoneId = zoneId;
         listenerList = new ArrayList<>();
     }

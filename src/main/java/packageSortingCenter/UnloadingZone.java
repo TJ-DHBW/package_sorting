@@ -1,17 +1,17 @@
 package packageSortingCenter;
 
 import container.lkw.LKW;
-import packageSortingCenter.unloadingZone.Sensor;
+import packageSortingCenter.unloadingZone.UnloadingZoneSensor;
 
 public class UnloadingZone {
     private static int nextId = 0;
     private LKW currentLKWUnloading;
-    private Sensor sensor;
+    private UnloadingZoneSensor sensor;
     private int id;
 
     public UnloadingZone() {
         this.id = nextId++;
-        sensor = new Sensor(id);
+        sensor = new UnloadingZoneSensor(id);
     }
 
     //region  Getter and Setter
@@ -30,7 +30,7 @@ public class UnloadingZone {
         return id;
     }
 
-    public Sensor getSensor() {
+    public UnloadingZoneSensor getSensor() {
         return sensor;
     }
 

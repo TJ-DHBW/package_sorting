@@ -14,6 +14,7 @@ public class BoxGenerator {
     public BoxGenerator() {
         boxes = new ArrayList<>();
     }
+
     //BoxGenerator only generates Boxes -> single responsibility principle
     public ArrayList<Box> boxGeneration(ArrayList<Package> packages) {
         int packageCounter = 0;
